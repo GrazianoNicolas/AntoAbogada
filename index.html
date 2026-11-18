@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Abogada en licitaciones públicas en Corrientes | Pliego</title>
-<meta name="description" content="Estudio jurídico en Corrientes dedicado a licitaciones y contrataciones públicas: inscripción como proveedor del Estado, armado de ofertas, impugnaciones y cobro.">
+<title>Licitaciones en Corrientes: obras y tecnología | Pliego</title>
+<meta name="description" content="Licitaciones de obras, mantenimiento y tecnología en Corrientes, analizadas por una abogada. Descárguelas gratis y pida asesoría para presentar su oferta.">
 <link rel="canonical" href="https://www.pliegoestudio.com.ar/">
 <meta name="robots" content="index, follow">
 <meta name="geo.region" content="AR-W">
@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Pliego Estudio Jurídico">
-<meta property="og:title" content="Abogada en licitaciones públicas en Corrientes | Pliego">
-<meta property="og:description" content="Estudio jurídico en Corrientes dedicado a licitaciones y contrataciones públicas: inscripción como proveedor del Estado, armado de ofertas, impugnaciones y cobro.">
+<meta property="og:title" content="Licitaciones en Corrientes: obras y tecnología | Pliego">
+<meta property="og:description" content="Licitaciones de obras, mantenimiento y tecnología en Corrientes, analizadas por una abogada. Descárguelas gratis y pida asesoría para presentar su oferta.">
 <meta property="og:url" content="https://www.pliegoestudio.com.ar/">
 <meta property="og:image" content="https://www.pliegoestudio.com.ar/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -136,11 +136,12 @@ a{color:inherit}
 .car-campos div{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:.5rem}
 .car-campos dt{color:var(--tinta-2)}
 .car-pasos{list-style:none;padding:0;counter-reset:fs;border-top:1px solid var(--linea)}
-.car-pasos li{counter-increment:fs;display:grid;grid-template-columns:1.6rem 8.6rem minmax(0,1fr);gap:.5rem;padding-block:.42rem;border-bottom:1px dashed var(--linea)}
+.car-pasos li{counter-increment:fs;display:grid;grid-template-columns:1.6rem minmax(0,1fr) auto;gap:.5rem;padding-block:.42rem;border-bottom:1px dashed var(--linea)}
 .car-pasos li::before{content:counter(fs,decimal-leading-zero);color:var(--acento)}
 .car-pasos b{font-weight:500}
 .car-pasos span{color:var(--tinta-2)}
-@media (max-width:480px){.car-pasos li{grid-template-columns:1.6rem minmax(0,1fr)}.car-pasos span{grid-column:2}}
+.car-pasos .falta{color:var(--acento);font-weight:500}
+.car-pasos .mejorar{color:var(--marca);font-weight:500}
 .car-pie{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.2rem}
 .car-pie small{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
 .sello{display:grid;justify-items:center;gap:.05rem;padding:.45rem .9rem;border:2px solid var(--acento);outline:1px solid var(--acento);outline-offset:-5px;color:var(--acento);text-transform:uppercase;letter-spacing:.12em;font-size:.62rem;line-height:1.3;transform:rotate(-7deg);margin:.3rem .4rem .5rem 0}
@@ -154,12 +155,31 @@ a{color:inherit}
 .clientes h3{font-size:1.15rem}
 .clientes p{color:var(--tinta-2);font-size:.98rem}
 
-/* Servicios */
-.servicios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3.5rem}
-@media (max-width:760px){.servicios{grid-template-columns:minmax(0,1fr)}}
-.servicios article{display:grid;gap:.5rem;align-content:start;padding-block:1.5rem;border-top:1px solid var(--linea)}
-.servicios h3{font-size:1.22rem}
-.servicios p:not(.norma){color:var(--tinta-2)}
+/* Listado de licitaciones */
+.filtros{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
+.chip{font:500 .92rem/1 var(--texto);min-height:2.75rem;padding:.55rem 1rem;border:1.5px solid var(--linea);border-radius:999px;background:transparent;color:var(--tinta);cursor:pointer}
+.chip:hover{border-color:var(--marca)}
+.chip[aria-pressed="true"]{background:var(--marca);border-color:var(--marca);color:var(--papel)}
+.lista tbody th{white-space:normal;min-width:15rem}
+.lista tr.lejos{opacity:.5}
+.lista tr.afin th::after{content:"Se acerca a su empresa";display:inline-block;margin-left:.6rem;vertical-align:middle;white-space:nowrap;font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);border:1px solid var(--acento);padding:.12rem .4rem}
+.bajar{font:600 .92rem/1 var(--texto);min-height:2.75rem;padding:0;border:0;background:none;color:var(--marca);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
+.sec--alt thead th{background:var(--papel)}
+
+/* Planes */
+.planes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;align-items:stretch}
+@media (max-width:900px){.planes{grid-template-columns:minmax(0,1fr);max-width:34rem}}
+.plan{display:flex;flex-direction:column;gap:.75rem;min-width:0;background:var(--papel);border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1.5rem}
+.plan--dest{border-color:var(--marca);box-shadow:7px 7px 0 var(--linea)}
+.plan-tag{font-family:var(--mono);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--acento)}
+.plan h3{font-size:1.45rem}
+.plan > p:not(.plan-tag){color:var(--tinta-2)}
+.plan ul{list-style:none;padding:.9rem 0 0;display:grid;gap:.5rem;border-top:1px solid var(--linea)}
+.plan li{display:grid;grid-template-columns:.9rem minmax(0,1fr);gap:.4rem}
+.plan li::before{content:"·";color:var(--acento);font-weight:700}
+.plan .btn{margin-top:auto;align-self:flex-start}
+.plan ul + .btn{margin-top:auto}
+.plan-nota{font-size:.9rem;margin-top:auto}
 
 /* Bandas */
 .banda{background:var(--banda);color:var(--banda-fg)}
@@ -261,8 +281,10 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .nav .lnk.activo{color:var(--tinta)}
 .logo svg{transition:transform .25s ease}
 .logo:hover svg{transform:rotate(-6deg)}
-.servicios h3,.clientes h3,.faq summary h3{transition:color .2s ease}
-.servicios article:hover h3,.clientes article:hover h3,.faq summary:hover h3{color:var(--marca)}
+.plan h3,.clientes h3,.faq summary h3{transition:color .2s ease}
+.plan:hover h3,.clientes article:hover h3,.faq summary:hover h3{color:var(--marca)}
+.chip{transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+.lista tr{transition:opacity .25s ease}
 .faq summary::after{transition:transform .25s ease}
 .faq[open] summary::after{content:"+";transform:rotate(45deg)}
 .fuentes a,.pie a{text-underline-offset:.2em;transition:text-decoration-color .2s ease,color .2s ease}
@@ -304,7 +326,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   .btn:hover,.logo:hover svg{transform:none}
 }
 </style>
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "LegalService", "@id": "https://www.pliegoestudio.com.ar/#estudio", "name": "Pliego Estudio Jurídico", "description": "Estudio jurídico en Corrientes dedicado a licitaciones y contrataciones públicas: inscripción como proveedor del Estado, armado de ofertas, impugnaciones y cobro.", "url": "https://www.pliegoestudio.com.ar/", "image": "https://www.pliegoestudio.com.ar/og-image.png", "logo": "https://www.pliegoestudio.com.ar/marca/isotipo.png", "address": {"@type": "PostalAddress", "addressLocality": "Corrientes", "addressRegion": "Corrientes", "addressCountry": "AR"}, "areaServed": {"@type": "AdministrativeArea", "name": "Provincia de Corrientes, Argentina"}, "knowsAbout": ["Licitaciones públicas", "Contrataciones públicas", "Registro de Proveedores del Estado", "Obra pública", "Derecho administrativo", "Impugnación de licitaciones"], "availableLanguage": "es"}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Pliego Estudio Jurídico", "url": "https://www.pliegoestudio.com.ar/", "inLanguage": "es-AR"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Quién puede ser proveedor del Estado en Corrientes?", "acceptedAnswer": {"@type": "Answer", "text": "Cualquier persona o empresa con capacidad para contratar, que esté al día con sus obligaciones fiscales y no tenga impedimentos legales para contratar con el Estado. No hace falta ser una empresa grande: también se inscriben monotributistas, comercios y pymes."}}, {"@type": "Question", "name": "¿Cómo me inscribo en el Registro de Proveedores de Corrientes?", "acceptedAnswer": {"@type": "Answer", "text": "La inscripción se tramita ante la Contaduría General de la Provincia. Se presentan los datos de la persona o empresa, las constancias de inscripción en ARCA (ex AFIP) y en Ingresos Brutos, la certificación de que no hay deudas exigibles con el fisco provincial y, según el caso, el contrato social con los estados contables o una manifestación de bienes certificada. La inscripción se actualiza cada dos años y, si vence, queda suspendida."}}, {"@type": "Question", "name": "¿Puedo presentarme a una licitación si todavía no estoy inscripto?", "acceptedAnswer": {"@type": "Answer", "text": "Depende del pliego y del organismo. En general conviene estar inscripto antes de ofertar, porque el reglamento es más exigente con quien no lo está, por ejemplo en materia de garantías. Si el llamado ya está abierto, reviso el caso y le digo qué se alcanza a hacer dentro del plazo."}}, {"@type": "Question", "name": "¿Qué garantías tengo que presentar?", "acceptedAnswer": {"@type": "Answer", "text": "Lo habitual es una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento si resulta adjudicatario. Se pueden constituir de varias formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado indica el monto y las formas aceptadas."}}, {"@type": "Question", "name": "¿Dónde se publican las licitaciones de Corrientes?", "acceptedAnswer": {"@type": "Answer", "text": "Los llamados se publican en el Boletín Oficial de la Provincia y en los sitios de los organismos que contratan. La Contaduría General de la Provincia difunde licitaciones en su portal y el Ministerio de Obras Públicas publica las de obra. Los municipios y el Poder Judicial tienen sus propios canales."}}, {"@type": "Question", "name": "Mi empresa es de otra provincia, ¿puedo ofertar en Corrientes?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Para inscribirse como proveedor tendrá que fijar un domicilio especial en la provincia. Tenga en cuenta que, a igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes."}}, {"@type": "Question", "name": "¿Qué puedo hacer si rechazan mi oferta o adjudican a otra empresa?", "acceptedAnswer": {"@type": "Answer", "text": "Hay herramientas: observaciones en el acto de apertura, impugnaciones a la preadjudicación, recursos administrativos contra la adjudicación y, después, la vía judicial. Los plazos son breves y se cuentan desde la notificación, así que conviene consultar el mismo día."}}, {"@type": "Question", "name": "¿Qué pasa si el organismo se atrasa con el pago?", "acceptedAnswer": {"@type": "Answer", "text": "Se puede reclamar por vía administrativa el pago de las facturas y, según el caso, los intereses. Antes de iniciar un reclamo reviso el contrato, la recepción de los bienes o servicios y el estado del expediente de pago, porque muchas demoras se destraban con una presentación bien hecha."}}, {"@type": "Question", "name": "¿También asesora en licitaciones municipales?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Cada municipio tiene su propio régimen de compras y su registro de proveedores, con reglas parecidas a las provinciales pero no iguales. Asesoro a proveedores de la Municipalidad de Corrientes y de los municipios del interior."}}, {"@type": "Question", "name": "¿Cómo se calculan los honorarios?", "acceptedAnswer": {"@type": "Answer", "text": "Dependen del trabajo: no es lo mismo una inscripción en el Registro que el armado de una oferta compleja o una impugnación. Después de la primera consulta le envío un presupuesto por escrito, con el alcance del trabajo, antes de empezar."}}, {"@type": "Question", "name": "¿Atiende a clientes del interior de la provincia?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La mayor parte del trabajo se puede hacer a distancia, con reuniones por videollamada y documentación digital. Las presentaciones en Corrientes Capital quedan a mi cargo."}}]}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "LegalService", "@id": "https://www.pliegoestudio.com.ar/#estudio", "name": "Pliego Estudio Jurídico", "description": "Licitaciones de obras, mantenimiento y tecnología en Corrientes, analizadas por una abogada. Descárguelas gratis y pida asesoría para presentar su oferta.", "url": "https://www.pliegoestudio.com.ar/", "image": "https://www.pliegoestudio.com.ar/og-image.png", "logo": "https://www.pliegoestudio.com.ar/marca/isotipo.png", "address": {"@type": "PostalAddress", "addressLocality": "Corrientes", "addressRegion": "Corrientes", "addressCountry": "AR"}, "areaServed": {"@type": "AdministrativeArea", "name": "Provincia de Corrientes, Argentina"}, "knowsAbout": ["Licitaciones públicas", "Licitaciones de obra pública", "Licitaciones de servicios de mantenimiento", "Licitaciones de tecnología", "Licitaciones de desarrollo de software y soporte", "Contrataciones públicas"], "availableLanguage": "es"}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Pliego Estudio Jurídico", "url": "https://www.pliegoestudio.com.ar/", "inLanguage": "es-AR"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué licitaciones voy a encontrar en este sitio?", "acceptedAnswer": {"@type": "Answer", "text": "Licitaciones de la Provincia de Corrientes y de los municipios que publican su información, en cuatro rubros: obras, mantenimiento, tecnología (adquisición de tecnología, bienes y servicios) y software y soporte."}}, {"@type": "Question", "name": "¿Por qué no están todas las licitaciones de Corrientes?", "acceptedAnswer": {"@type": "Answer", "text": "Porque sólo incluyo los rubros en los que trabajé. Son los que conozco y, por eso, los que puedo analizar bien."}}, {"@type": "Question", "name": "¿Descargar las licitaciones tiene costo?", "acceptedAnswer": {"@type": "Answer", "text": "No. El plan básico es gratuito: puede descargar las licitaciones publicadas en el sitio y ver cuáles se acercan más a su empresa."}}, {"@type": "Question", "name": "¿Cómo sé qué licitación le conviene a mi empresa?", "acceptedAnswer": {"@type": "Answer", "text": "En el listado elige a qué se dedica su empresa y el sitio le muestra primero las licitaciones que más se acercan a ese rubro. Si después quiere saber si está en condiciones de presentarse, eso se ve en la asesoría."}}, {"@type": "Question", "name": "¿Qué incluye la asesoría para presentarse a una licitación?", "acceptedAnswer": {"@type": "Answer", "text": "El análisis de esa licitación, qué documentación le falta, qué documentación tiene pero hay que mejorar y la oferta diseñada para su empresa."}}, {"@type": "Question", "name": "¿Me acompaña durante todo el proceso de la licitación?", "acceptedAnswer": {"@type": "Answer", "text": "Ese será un tercer plan, que todavía no está disponible. Una licitación es un proceso muy largo, en el que cambian muchas cosas, y la mayoría dura dos o tres años. Por eso el seguimiento completo se suma más adelante."}}, {"@type": "Question", "name": "¿De dónde sale la información de las licitaciones?", "acceptedAnswer": {"@type": "Answer", "text": "De las publicaciones oficiales: el Boletín Oficial de la Provincia, el portal de la Contaduría General y los sitios de los municipios que publican sus llamados."}}, {"@type": "Question", "name": "¿Tengo que estar inscripto como proveedor del Estado para ofertar?", "acceptedAnswer": {"@type": "Answer", "text": "En general conviene estarlo antes de ofertar. La inscripción se tramita ante el Registro de Proveedores de la Contaduría General de la Provincia y se actualiza cada dos años. Si falta o está vencida, es una de las cosas que aparecen en la asesoría como documentación a completar."}}, {"@type": "Question", "name": "¿Qué garantías se piden en una licitación?", "acceptedAnswer": {"@type": "Answer", "text": "Lo habitual es una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento si resulta adjudicatario. Se pueden constituir de varias formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado indica el monto y las formas aceptadas."}}, {"@type": "Question", "name": "Mi empresa es de otra provincia, ¿puedo ofertar en Corrientes?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Para inscribirse como proveedor tendrá que fijar un domicilio especial en la provincia. Tenga en cuenta que, a igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes."}}]}]</script>
 </head>
 <body>
 <header class="top">
@@ -315,11 +337,11 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
     </a>
     <nav class="nav" aria-label="Secciones">
       <div class="nav-links" id="menu">
-        <a class="lnk" href="#servicios">Servicios</a>
-        <a class="lnk" href="#proceso">Cómo trabajo</a>
-        <a class="lnk" href="#guia">Guía</a>
+        <a class="lnk" href="#licitaciones">Licitaciones</a>
+        <a class="lnk" href="#planes">Planes</a>
+        <a class="lnk" href="#proceso">Cómo funciona</a>
+        <a class="lnk" href="#abogada">Quién soy</a>
         <a class="lnk" href="#preguntas">Preguntas</a>
-        <a class="lnk" href="#estudio">El estudio</a>
       </div>
       <a class="btn btn--pri btn--chico" href="#contacto">Consultar</a>
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú"><span></span><span></span><span></span></button>
@@ -331,118 +353,143 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   <section class="hero">
     <div class="wrap">
       <div class="hero-txt">
-        <p class="eyebrow">Estudio jurídico · Corrientes, Argentina</p>
-        <h1>Abogada en licitaciones y contrataciones públicas en <em>Corrientes</em></h1>
-        <p class="lead">Asesoro a empresas, pymes y profesionales que quieren venderle al Estado provincial y a los municipios de Corrientes, desde la inscripción como proveedor hasta el cobro del contrato.</p>
+        <p class="eyebrow">Abogada · Corrientes, Argentina</p>
+        <h1>Licitaciones de obras, mantenimiento y tecnología en <em>Corrientes</em></h1>
+        <p class="lead">Soy abogada y analizo procesos de licitación. Acá encuentra las licitaciones de la Provincia y de los municipios que publican su información, sólo en los rubros que conozco por haber trabajado en ellos.</p>
         <div class="cta">
-          <a class="btn btn--pri" href="#contacto">Consultar por WhatsApp</a>
-          <a class="btn btn--sec" href="#servicios">Ver servicios</a>
+          <a class="btn btn--pri" href="#licitaciones">Ver licitaciones</a>
+          <a class="btn btn--sec" href="#planes">Conocer los planes</a>
         </div>
         <ul class="datos">
           <li>Provincia y municipios</li>
-          <li>Bienes, servicios y obra pública</li>
-          <li>Atención en Corrientes y a distancia</li>
+          <li>Descarga gratuita</li>
+          <li>Asesoría para presentar su oferta</li>
         </ul>
       </div>
 
-      <aside class="caratula" aria-label="Ejemplo: el recorrido de una oferta en una licitación pública y en qué ayudo en cada etapa">
+      <aside class="caratula" aria-label="Ejemplo de una licitación analizada: qué documentación está en regla, cuál falta y cuál hay que mejorar">
         <div class="car-top"><span>Provincia de Corrientes</span><span>Ejemplo</span></div>
         <p class="car-tit">Licitación pública</p>
         <dl class="car-campos">
-          <div><dt>Carátula</dt><dd>Su empresa s/ presentación de oferta</dd></div>
-          <div><dt>Marco</dt><dd>Ley 5571 · Decreto 3056/04</dd></div>
+          <div><dt>Rubro</dt><dd>Tecnología · desarrollo de software</dd></div>
+          <div><dt>Afinidad</dt><dd>Alta con su empresa</dd></div>
         </dl>
         <ol class="car-pasos">
-          <li><b>Llamado</b><span>¿Conviene presentarse?</span></li>
-          <li><b>Pliego</b><span>Qué exige y qué riesgos tiene</span></li>
-          <li><b>Oferta</b><span>Documentación y garantía en regla</span></li>
-          <li><b>Apertura</b><span>Control de las demás ofertas</span></li>
-          <li><b>Preadjudicación</b><span>Observaciones e impugnaciones</span></li>
-          <li><b>Adjudicación</b><span>Contrato y garantía</span></li>
-          <li><b>Ejecución</b><span>Entregas, plazos y cobro</span></li>
+          <li><b>Registro de Proveedores</b><span>En regla</span></li>
+          <li><b>Constancias fiscales</b><span>En regla</span></li>
+          <li><b>Pliegos firmados</b><span>En regla</span></li>
+          <li><b>Garantía de oferta</b><span class="falta">Falta</span></li>
+          <li><b>Antecedentes</b><span class="mejorar">A mejorar</span></li>
+          <li><b>Propuesta técnica</b><span class="mejorar">A mejorar</span></li>
+          <li><b>Oferta económica</b><span>En regla</span></li>
         </ol>
         <div class="car-pie">
           <small>Fs. 1</small>
-          <div class="sello" aria-hidden="true"><span>Oferta</span><strong>Admisible</strong><span>sin observaciones</span></div>
+          <div class="sello" aria-hidden="true"><span>Licitación</span><strong>Analizada</strong><span>por una abogada</span></div>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="sec sec--alt" id="clientes">
+  <section class="sec sec--alt" id="rubros">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">A quién acompaño</p>
-        <h2>Para quienes le venden al Estado, o quieren empezar</h2>
+        <p class="eyebrow">Rubros que analizo</p>
+        <h2>No están todas las licitaciones: están las que conozco</h2>
+        <p>Trabajé con licitaciones de obras y de mantenimiento, y hoy con las de tecnología. El sitio abarca sólo esos rubros.</p>
       </div>
       <div class="clientes">
         <article>
-          <h3>Pymes y comercios</h3>
-          <p>Que quieren ser proveedores del Estado y no saben por dónde arrancar, o que ya ofertaron y quedaron afuera por un requisito formal.</p>
+          <h3>Obras</h3>
+          <p>Licitaciones de obra pública de la Provincia y de los municipios.</p>
         </article>
         <article>
-          <h3>Constructoras y contratistas</h3>
-          <p>Que licitan obra pública y necesitan cuidar plazos, certificados, redeterminaciones y recepciones.</p>
+          <h3>Mantenimiento</h3>
+          <p>Contrataciones de servicios de mantenimiento.</p>
         </article>
         <article>
-          <h3>Profesionales y consultoras</h3>
-          <p>Que se presentan a concursos de antecedentes o a contratos de servicios con organismos públicos.</p>
+          <h3>Tecnología</h3>
+          <p>Adquisición de tecnología, bienes y servicios.</p>
         </article>
         <article>
-          <h3>Organismos y municipios</h3>
-          <p>Que necesitan pliegos claros y procedimientos de compra capaces de resistir una impugnación.</p>
+          <h3>Software y soporte</h3>
+          <p>Desarrollo de software y servicios de soporte.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="servicios">
+  <section class="sec" id="licitaciones">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Servicios</p>
-        <h2>Asesoramiento legal para proveedores y contratistas del Estado en Corrientes</h2>
-        <p>Trabajo en todas las etapas de una contratación pública. Puede consultarme por una sola o por el proceso completo.</p>
+        <p class="eyebrow">Licitaciones</p>
+        <h2>Licitaciones abiertas en Corrientes, por rubro</h2>
+        <p>Elija a qué se dedica su empresa y el listado le muestra primero las que más se acercan. Descargarlas es gratis.</p>
       </div>
-      <div class="servicios">
-        <article>
-          <h3>Inscripción como proveedor del Estado</h3>
-          <p>Preparo y presento el trámite ante el Registro de Proveedores de la Contaduría General de la Provincia y ante los registros propios de otros organismos y municipios. También me ocupo de la renovación, que vence cada dos años.</p>
-          <p class="norma">Decreto 3056/04 · arts. 117 a 124</p>
+      <div class="filtros" role="group" aria-label="Rubro de su empresa">
+        <button class="chip" type="button" data-rubro="todas" aria-pressed="true">Todas</button>
+        <button class="chip" type="button" data-rubro="obras" aria-pressed="false">Obras</button>
+        <button class="chip" type="button" data-rubro="mantenimiento" aria-pressed="false">Mantenimiento</button>
+        <button class="chip" type="button" data-rubro="tecnologia" aria-pressed="false">Tecnología</button>
+        <button class="chip" type="button" data-rubro="software" aria-pressed="false">Software y soporte</button>
+      </div>
+      <div class="tabla">
+        <table class="lista" id="lista">
+          <thead>
+            <tr><th scope="col">Rubro</th><th scope="col">Objeto</th><th scope="col">Organismo</th><th scope="col">Apertura</th><th scope="col">Pliego</th></tr>
+          </thead>
+          <tbody>
+            <tr data-rubro="obras"><td class="norma">Obras</td><th scope="row">Refacción y ampliación de un edificio escolar</th><td>Organismo provincial</td><td><span class="completar">12/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
+            <tr data-rubro="software"><td class="norma">Software y soporte</td><th scope="row">Desarrollo de un sistema de gestión de expedientes</th><td>Municipio</td><td><span class="completar">15/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
+            <tr data-rubro="mantenimiento"><td class="norma">Mantenimiento</td><th scope="row">Mantenimiento de ascensores y equipos de climatización</th><td>Organismo provincial</td><td><span class="completar">18/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
+            <tr data-rubro="tecnologia"><td class="norma">Tecnología</td><th scope="row">Adquisición de computadoras y equipamiento de red</th><td>Organismo provincial</td><td><span class="completar">21/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
+            <tr data-rubro="obras"><td class="norma">Obras</td><th scope="row">Pavimentación de calles urbanas</th><td>Municipio</td><td><span class="completar">22/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
+            <tr data-rubro="software"><td class="norma">Software y soporte</td><th scope="row">Soporte y mantenimiento de sistemas informáticos</th><td>Organismo provincial</td><td><span class="completar">28/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota" id="nota-lista" aria-live="polite"><span class="completar">Listado de ejemplo</span>, para mostrar cómo se verá. Las licitaciones reales se toman de las publicaciones oficiales de la Provincia y de los municipios.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--alt" id="planes">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Planes</p>
+        <h2>Empiece gratis y pida asesoría cuando quiera presentarse</h2>
+        <p>Son tres planes. Se empieza por el básico, que es gratuito, y el tercero se suma más adelante.</p>
+      </div>
+      <div class="planes">
+        <article class="plan">
+          <p class="plan-tag">Gratuito</p>
+          <h3>Básico</h3>
+          <p>Para saber qué se está licitando en su rubro.</p>
+          <ul>
+            <li>Descarga de las licitaciones publicadas en el sitio.</li>
+            <li>Indicación de cuáles se acercan más a su empresa o pyme.</li>
+          </ul>
+          <a class="btn btn--sec" href="#licitaciones">Ver licitaciones</a>
         </article>
-        <article>
-          <h3>Análisis del pliego antes de ofertar</h3>
-          <p>Leo el pliego de bases y condiciones y le digo qué exige, qué riesgos tiene y si conviene presentarse. Si hay cláusulas confusas o restrictivas, preparo la consulta o la observación.</p>
-          <p class="norma">Pliego general y pliego particular</p>
+        <article class="plan plan--dest">
+          <p class="plan-tag"><span class="completar">Precio a definir</span></p>
+          <h3>Asesoría</h3>
+          <p>Para cuando decide presentarse a una licitación.</p>
+          <ul>
+            <li>El análisis de esa licitación.</li>
+            <li>Qué documentación le falta.</li>
+            <li>Qué documentación tiene pero hay que mejorar.</li>
+            <li>La oferta diseñada para su empresa.</li>
+          </ul>
+          <a class="btn btn--pri" href="#contacto">Pedir asesoría</a>
         </article>
-        <article>
-          <h3>Armado y control de la oferta</h3>
-          <p>Reviso la documentación, las declaraciones juradas, la garantía de oferta y cada formalidad, para que su propuesta no quede descartada por un error evitable.</p>
-          <p class="norma">Decreto 3056/04 · requisitos y garantías</p>
-        </article>
-        <article>
-          <h3>Apertura, observaciones e impugnaciones</h3>
-          <p>Lo acompaño en el acto de apertura, reviso las ofertas de los demás y presento observaciones, impugnaciones o recursos cuando la preadjudicación o la adjudicación no se ajustan a derecho.</p>
-          <p class="norma">Ley 3460 · procedimiento administrativo</p>
-        </article>
-        <article>
-          <h3>Ejecución del contrato y cobro</h3>
-          <p>Prórrogas, ampliaciones, readecuación de precios, multas, rescisiones y reclamos por facturas impagas. Intervengo cuando el contrato se complica y, mejor todavía, antes.</p>
-          <p class="norma">Contrato, penalidades y reclamos de pago</p>
-        </article>
-        <article>
-          <h3>Obra pública</h3>
-          <p>Asesoramiento en licitaciones de obra, inscripción en el Registro de Constructores y Consultores de Obras Públicas, certificados, redeterminaciones de precios y recepciones.</p>
-          <p class="norma">Ley 3079 de Obras Públicas</p>
-        </article>
-        <article>
-          <h3>Defensa ante sanciones</h3>
-          <p>Descargos y recursos frente a multas, apercibimientos, suspensiones o bajas del Registro de Proveedores.</p>
-          <p class="norma">Decreto 3056/04 · penalidades y sanciones</p>
-        </article>
-        <article>
-          <h3>Asesoramiento a organismos y municipios</h3>
-          <p>Redacción y revisión de pliegos, dictámenes y capacitación para áreas de compras y contrataciones.</p>
-          <p class="norma">Ley 5571 · Título VIII</p>
+        <article class="plan">
+          <p class="plan-tag">Próximamente</p>
+          <h3>Seguimiento completo</h3>
+          <p>Para quien quiere acompañamiento de principio a fin.</p>
+          <ul>
+            <li>Seguimiento de todo el proceso, hasta que termina la licitación.</li>
+          </ul>
+          <p class="plan-nota">Una licitación es un proceso largo, en el que cambian muchas cosas. Por eso este plan se suma más adelante.</p>
         </article>
       </div>
     </div>
@@ -451,31 +498,49 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   <section class="sec banda" id="proceso">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Cómo trabajo</p>
-        <h2>Cuatro pasos, con plazos y honorarios claros desde el principio</h2>
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>De ver la licitación a presentar su oferta</h2>
       </div>
       <ol class="pasos">
         <li>
-          <h3>Primera consulta</h3>
-          <p>Me cuenta qué vende, a qué organismo apunta y en qué etapa está. Puede ser en el estudio, por videollamada o por WhatsApp.</p>
+          <h3>Elija su rubro</h3>
+          <p>Entre al listado y marque a qué se dedica su empresa: obras, mantenimiento, tecnología o software y soporte.</p>
         </li>
         <li>
-          <h3>Diagnóstico y presupuesto</h3>
-          <p>Reviso el pliego o su documentación y le informo por escrito qué hace falta, qué plazos corren y cuánto cuestan mis honorarios.</p>
+          <h3>Descargue las licitaciones</h3>
+          <p>Es gratis. El sitio le señala cuáles se acercan más a su empresa o pyme.</p>
         </li>
         <li>
-          <h3>Preparación y presentación</h3>
-          <p>Usted aporta la información de su empresa. Yo me ocupo de la parte legal y de controlar cada requisito antes de presentar.</p>
+          <h3>Pida la asesoría</h3>
+          <p>Si quiere presentarse, analizo esa licitación y le digo qué documentación le falta y cuál tiene que mejorar.</p>
         </li>
         <li>
-          <h3>Seguimiento hasta el cobro</h3>
-          <p>Sigo el expediente después de la apertura: preadjudicación, adjudicación, firma del contrato y cualquier problema durante la ejecución.</p>
+          <h3>Presente su oferta</h3>
+          <p>Recibe la oferta diseñada para su empresa, lista para presentar.</p>
         </li>
       </ol>
     </div>
   </section>
 
-  <section class="sec" id="guia">
+  <section class="sec" id="abogada">
+    <div class="wrap estudio">
+      <div class="foto" role="img" aria-label="Espacio reservado para la foto de la abogada">Foto de la abogada<br>(a incorporar)</div>
+      <div class="bio">
+        <p class="eyebrow">Quién soy</p>
+        <h2>Una abogada que analiza procesos de licitación</h2>
+        <p>Soy <span class="completar">Nombre Apellido</span>, abogada. Mi trabajo es analizar procesos de licitación en la Provincia de Corrientes.</p>
+        <p>Trabajé con licitaciones de obras y de mantenimiento, y hoy con las de tecnología: adquisición de tecnología, bienes y servicios, desarrollo de software y soporte.</p>
+        <p>Por eso en este sitio no están todas las licitaciones. Están las de los rubros que ya conozco, porque son las que puedo analizar bien.</p>
+        <dl class="ficha">
+          <div><dt>Matrícula</dt><dd><span class="completar">a completar</span></dd></div>
+          <div><dt>Formación</dt><dd><span class="completar">universidad y posgrados, a completar</span></dd></div>
+          <div><dt>Alcance</dt><dd>Provincia de Corrientes y municipios que publican su información</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--alt" id="guia">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Guía rápida</p>
@@ -559,75 +624,53 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
     </div>
   </section>
 
-  <section class="sec sec--alt" id="preguntas">
+  <section class="sec" id="preguntas">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Preguntas frecuentes</p>
-        <h2>Lo que más me preguntan sobre licitaciones en Corrientes</h2>
+        <h2>Preguntas sobre las licitaciones y los planes</h2>
       </div>
       <div class="faqs">
         <details class="faq" open>
-          <summary><h3>¿Quién puede ser proveedor del Estado en Corrientes?</h3></summary>
-          <p>Cualquier persona o empresa con capacidad para contratar, que esté al día con sus obligaciones fiscales y no tenga impedimentos legales para contratar con el Estado. No hace falta ser una empresa grande: también se inscriben monotributistas, comercios y pymes.</p>
+          <summary><h3>¿Qué licitaciones voy a encontrar en este sitio?</h3></summary>
+          <p>Licitaciones de la Provincia de Corrientes y de los municipios que publican su información, en cuatro rubros: obras, mantenimiento, tecnología (adquisición de tecnología, bienes y servicios) y software y soporte.</p>
         </details>
         <details class="faq">
-          <summary><h3>¿Cómo me inscribo en el Registro de Proveedores de Corrientes?</h3></summary>
-          <p>La inscripción se tramita ante la Contaduría General de la Provincia. Se presentan los datos de la persona o empresa, las constancias de inscripción en ARCA (ex AFIP) y en Ingresos Brutos, la certificación de que no hay deudas exigibles con el fisco provincial y, según el caso, el contrato social con los estados contables o una manifestación de bienes certificada. La inscripción se actualiza cada dos años y, si vence, queda suspendida.</p>
+          <summary><h3>¿Por qué no están todas las licitaciones de Corrientes?</h3></summary>
+          <p>Porque sólo incluyo los rubros en los que trabajé. Son los que conozco y, por eso, los que puedo analizar bien.</p>
         </details>
         <details class="faq">
-          <summary><h3>¿Puedo presentarme a una licitación si todavía no estoy inscripto?</h3></summary>
-          <p>Depende del pliego y del organismo. En general conviene estar inscripto antes de ofertar, porque el reglamento es más exigente con quien no lo está, por ejemplo en materia de garantías. Si el llamado ya está abierto, reviso el caso y le digo qué se alcanza a hacer dentro del plazo.</p>
+          <summary><h3>¿Descargar las licitaciones tiene costo?</h3></summary>
+          <p>No. El plan básico es gratuito: puede descargar las licitaciones publicadas en el sitio y ver cuáles se acercan más a su empresa.</p>
         </details>
         <details class="faq">
-          <summary><h3>¿Qué garantías tengo que presentar?</h3></summary>
+          <summary><h3>¿Cómo sé qué licitación le conviene a mi empresa?</h3></summary>
+          <p>En el listado elige a qué se dedica su empresa y el sitio le muestra primero las licitaciones que más se acercan a ese rubro. Si después quiere saber si está en condiciones de presentarse, eso se ve en la asesoría.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Qué incluye la asesoría para presentarse a una licitación?</h3></summary>
+          <p>El análisis de esa licitación, qué documentación le falta, qué documentación tiene pero hay que mejorar y la oferta diseñada para su empresa.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Me acompaña durante todo el proceso de la licitación?</h3></summary>
+          <p>Ese será un tercer plan, que todavía no está disponible. Una licitación es un proceso muy largo, en el que cambian muchas cosas, y la mayoría dura dos o tres años. Por eso el seguimiento completo se suma más adelante.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿De dónde sale la información de las licitaciones?</h3></summary>
+          <p>De las publicaciones oficiales: el Boletín Oficial de la Provincia, el portal de la Contaduría General y los sitios de los municipios que publican sus llamados.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Tengo que estar inscripto como proveedor del Estado para ofertar?</h3></summary>
+          <p>En general conviene estarlo antes de ofertar. La inscripción se tramita ante el Registro de Proveedores de la Contaduría General de la Provincia y se actualiza cada dos años. Si falta o está vencida, es una de las cosas que aparecen en la asesoría como documentación a completar.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Qué garantías se piden en una licitación?</h3></summary>
           <p>Lo habitual es una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento si resulta adjudicatario. Se pueden constituir de varias formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado indica el monto y las formas aceptadas.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Dónde se publican las licitaciones de Corrientes?</h3></summary>
-          <p>Los llamados se publican en el Boletín Oficial de la Provincia y en los sitios de los organismos que contratan. La Contaduría General de la Provincia difunde licitaciones en su portal y el Ministerio de Obras Públicas publica las de obra. Los municipios y el Poder Judicial tienen sus propios canales.</p>
         </details>
         <details class="faq">
           <summary><h3>Mi empresa es de otra provincia, ¿puedo ofertar en Corrientes?</h3></summary>
           <p>Sí. Para inscribirse como proveedor tendrá que fijar un domicilio especial en la provincia. Tenga en cuenta que, a igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes.</p>
         </details>
-        <details class="faq">
-          <summary><h3>¿Qué puedo hacer si rechazan mi oferta o adjudican a otra empresa?</h3></summary>
-          <p>Hay herramientas: observaciones en el acto de apertura, impugnaciones a la preadjudicación, recursos administrativos contra la adjudicación y, después, la vía judicial. Los plazos son breves y se cuentan desde la notificación, así que conviene consultar el mismo día.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Qué pasa si el organismo se atrasa con el pago?</h3></summary>
-          <p>Se puede reclamar por vía administrativa el pago de las facturas y, según el caso, los intereses. Antes de iniciar un reclamo reviso el contrato, la recepción de los bienes o servicios y el estado del expediente de pago, porque muchas demoras se destraban con una presentación bien hecha.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿También asesora en licitaciones municipales?</h3></summary>
-          <p>Sí. Cada municipio tiene su propio régimen de compras y su registro de proveedores, con reglas parecidas a las provinciales pero no iguales. Asesoro a proveedores de la Municipalidad de Corrientes y de los municipios del interior.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Cómo se calculan los honorarios?</h3></summary>
-          <p>Dependen del trabajo: no es lo mismo una inscripción en el Registro que el armado de una oferta compleja o una impugnación. Después de la primera consulta le envío un presupuesto por escrito, con el alcance del trabajo, antes de empezar.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Atiende a clientes del interior de la provincia?</h3></summary>
-          <p>Sí. La mayor parte del trabajo se puede hacer a distancia, con reuniones por videollamada y documentación digital. Las presentaciones en Corrientes Capital quedan a mi cargo.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="estudio">
-    <div class="wrap estudio">
-      <div class="foto" role="img" aria-label="Espacio reservado para la foto de la abogada">Foto de la abogada<br>(a incorporar)</div>
-      <div class="bio">
-        <p class="eyebrow">El estudio</p>
-        <h2>Un estudio dedicado a un solo tema: contratar con el Estado</h2>
-        <p>Soy <span class="completar">Nombre Apellido</span>, abogada. Elegí dedicarme a las contrataciones públicas porque es un terreno donde los detalles deciden: una firma que falta o un plazo mal contado pueden dejar afuera a la mejor oferta.</p>
-        <p>Abrí Pliego para que las empresas correntinas, sobre todo las más chicas, puedan competir por los contratos del Estado en igualdad de condiciones con las que ya conocen el camino.</p>
-        <p>Trabajo sola y de manera directa: quien lo atiende en la primera consulta es quien lleva su caso hasta el final.</p>
-        <dl class="ficha">
-          <div><dt>Matrícula</dt><dd><span class="completar">a completar</span></dd></div>
-          <div><dt>Formación</dt><dd><span class="completar">universidad y posgrados, a completar</span></dd></div>
-          <div><dt>Atención</dt><dd>Corrientes Capital y toda la provincia</dd></div>
-        </dl>
       </div>
     </div>
   </section>
@@ -637,8 +680,8 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
       <div>
         <div class="sec-head">
           <p class="eyebrow">Contacto</p>
-          <h2>Cuénteme su caso</h2>
-          <p>Si ya tiene un pliego o una fecha de apertura, avíseme en el mensaje. Los plazos en una licitación son cortos y conviene mirarlos primero.</p>
+          <h2>Pida su asesoría</h2>
+          <p>Cuénteme a qué se dedica su empresa y a qué licitación quiere presentarse. Si ya hay una fecha de apertura, avíseme en el mensaje.</p>
         </div>
         <dl class="vias">
           <div><dt>WhatsApp</dt><dd><span class="completar">+54 379 000-0000</span></dd></div>
@@ -663,17 +706,15 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
           </label>
           <label for="c-tema">Tema de la consulta
             <select id="c-tema" name="tema">
-              <option>Inscripción como proveedor</option>
-              <option>Quiero presentarme a una licitación</option>
-              <option>Impugnación o rechazo de oferta</option>
-              <option>Problema con un contrato o un pago</option>
-              <option>Obra pública</option>
+              <option>Quiero asesoría para una licitación</option>
+              <option>Consulta sobre las licitaciones publicadas</option>
+              <option>Me interesa el seguimiento completo</option>
               <option>Otro tema</option>
             </select>
           </label>
         </div>
         <label for="c-msj">Mensaje
-          <textarea id="c-msj" name="mensaje" placeholder="Qué vende, a qué organismo y si hay una fecha de apertura."></textarea>
+          <textarea id="c-msj" name="mensaje" placeholder="A qué se dedica su empresa y qué licitación le interesa."></textarea>
         </label>
         <button class="btn btn--banda" type="submit">Enviar consulta por WhatsApp</button>
         <div class="previa" id="previa" hidden aria-live="polite">
@@ -689,14 +730,15 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   <div class="wrap">
     <div class="pie-cols">
       <div>
-        <span class="logo-txt"><b>Pliego</b><small>Estudio jurídico · Contrataciones públicas</small></span>
-        <p>Asesoramiento legal en licitaciones, contrataciones públicas y obra pública en la Provincia de Corrientes.</p>
+        <span class="logo-txt"><b>Pliego</b><small>Estudio jurídico · Licitaciones</small></span>
+        <p>Licitaciones de obras, mantenimiento y tecnología en la Provincia de Corrientes, analizadas por una abogada.</p>
       </div>
       <div>
         <h2>Secciones</h2>
         <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proceso">Cómo trabajo</a></li>
+          <li><a href="#licitaciones">Licitaciones</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#proceso">Cómo funciona</a></li>
           <li><a href="#guia">Guía de licitaciones</a></li>
           <li><a href="#preguntas">Preguntas frecuentes</a></li>
           <li><a href="#contacto">Contacto</a></li>
@@ -711,7 +753,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
         </ul>
       </div>
     </div>
-    <p class="legal">La información de este sitio es orientativa y no reemplaza el asesoramiento legal sobre un caso concreto. Las normas citadas pueden haber sido modificadas después de su publicación. © <span id="anio">2026</span> Pliego Estudio Jurídico, Corrientes, Argentina.</p>
+    <p class="legal">La información de este sitio es orientativa y no reemplaza el asesoramiento legal sobre un caso concreto. Las normas citadas pueden haber sido modificadas después de su publicación. El listado de licitaciones reproduce publicaciones oficiales y no las reemplaza. © <span id="anio">2026</span> Pliego Estudio Jurídico, Corrientes, Argentina.</p>
   </div>
 </footer>
 
@@ -744,6 +786,32 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
     window.addEventListener('resize', cerrar);
   }
 
+  // Listado: el rubro elegido pasa primero y queda marcado como cercano a la empresa
+  var lista = document.getElementById('lista');
+  if (lista) {
+    var cuerpo = lista.tBodies[0];
+    var filas = Array.prototype.slice.call(cuerpo.rows);
+    var chips = document.querySelectorAll('.chip');
+    Array.prototype.forEach.call(chips, function(chip){
+      chip.addEventListener('click', function(){
+        var rubro = chip.getAttribute('data-rubro');
+        Array.prototype.forEach.call(chips, function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+        var cerca = [], resto = [];
+        filas.forEach(function(f){
+          var afin = rubro !== 'todas' && f.getAttribute('data-rubro') === rubro;
+          f.classList.toggle('afin', afin);
+          f.classList.toggle('lejos', rubro !== 'todas' && !afin);
+          (afin ? cerca : resto).push(f);
+        });
+        cerca.concat(resto).forEach(function(f){ cuerpo.appendChild(f); });
+      });
+    });
+    var nota = document.getElementById('nota-lista');
+    lista.addEventListener('click', function(e){
+      if (nota && e.target.closest('.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
+    });
+  }
+
   var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window) {
     // Marca en el menú la sección que se está leyendo
@@ -762,7 +830,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
 
     // Aparición suave de cada bloque al entrar en pantalla
     if (!quieto) {
-      var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .servicios article, .pasos li, .etapas li, .sub, .tabla, .faqs, .estudio > *, .contacto > *');
+      var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .etapas li, .sub, .tabla, .faqs, .estudio > *, .contacto > *');
       var ver = new IntersectionObserver(function(entradas){
         entradas.forEach(function(en){
           if (en.isIntersecting || en.boundingClientRect.top < 0) { en.target.classList.add('visto'); ver.unobserve(en.target); }

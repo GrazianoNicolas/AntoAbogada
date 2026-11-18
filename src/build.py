@@ -2,9 +2,9 @@ import re, json, os, html, sys
 SRC = os.path.join(os.path.dirname(__file__), 'pliego-web.html')
 OUT = sys.argv[1]
 DOMINIO = 'https://www.pliegoestudio.com.ar/'   # provisorio: reemplazar por el dominio real
-TITLE = 'Abogada en licitaciones públicas en Corrientes | Pliego'
-DESC = ('Estudio jurídico en Corrientes dedicado a licitaciones y contrataciones públicas: '
-        'inscripción como proveedor del Estado, armado de ofertas, impugnaciones y cobro.')
+TITLE = 'Licitaciones en Corrientes: obras y tecnología | Pliego'
+DESC = ('Licitaciones de obras, mantenimiento y tecnología en Corrientes, analizadas por una abogada. '
+        'Descárguelas gratis y pida asesoría para presentar su oferta.')
 src = open(SRC, encoding='utf-8').read()
 head, body = src.split('<!--BODY-->')
 style = re.search(r'<style>.*?</style>', head, re.S).group(0)
@@ -28,8 +28,8 @@ ld = [
   "image":DOMINIO+"og-image.png","logo":DOMINIO+"marca/isotipo.png",
   "address":{"@type":"PostalAddress","addressLocality":"Corrientes","addressRegion":"Corrientes","addressCountry":"AR"},
   "areaServed":{"@type":"AdministrativeArea","name":"Provincia de Corrientes, Argentina"},
-  "knowsAbout":["Licitaciones públicas","Contrataciones públicas","Registro de Proveedores del Estado",
-                "Obra pública","Derecho administrativo","Impugnación de licitaciones"],
+  "knowsAbout":["Licitaciones públicas","Licitaciones de obra pública","Licitaciones de servicios de mantenimiento",
+                "Licitaciones de tecnología","Licitaciones de desarrollo de software y soporte","Contrataciones públicas"],
   "availableLanguage":"es"},
  {"@context":"https://schema.org","@type":"WebSite","name":"Pliego Estudio Jurídico","url":DOMINIO,"inLanguage":"es-AR"},
  {"@context":"https://schema.org","@type":"FAQPage",
