@@ -1,6 +1,6 @@
 # Pliego, estudio jurídico
 
-Sitio web de un estudio jurídico dedicado a licitaciones y contrataciones públicas en la Provincia de Corrientes, Argentina.
+Sitio web de una abogada que analiza licitaciones de obras, mantenimiento y tecnología en la Provincia de Corrientes, Argentina. Muestra un listado de licitaciones por rubro, tres planes (básico gratuito, asesoría y seguimiento completo) y el contacto.
 
 Es un sitio estático: no necesita instalación, servidor ni base de datos. La raíz del repositorio es el sitio publicable, así que funciona tal cual en GitHub Pages, Netlify, Vercel, Cloudflare Pages o cualquier hosting común.
 
@@ -37,7 +37,9 @@ En `src/pliego-web.html` están marcados con `class="completar"`:
 2. WhatsApp, correo, dirección y horario (sección "Contacto").
 3. Número de WhatsApp del formulario: al final del archivo, `var WHATSAPP = ''`. Va en formato internacional sin signos, por ejemplo `5493794000000`.
 4. Foto de la abogada, en lugar del recuadro punteado.
-5. Dominio: en `src/build.py` figura `https://www.pliegoestudio.com.ar/` como provisorio. Hay que reemplazarlo por la dirección real del sitio antes de publicarlo, porque se usa en la URL canónica, el `robots.txt` y el `sitemap.xml`.
+5. Precio del plan Asesoría y, si se va a cobrar en línea, el enlace de pago o de reserva al que lleva el botón "Pedir asesoría".
+6. Licitaciones reales: las filas de la tabla `id="lista"` son de ejemplo. Cada fila lleva `data-rubro` con `obras`, `mantenimiento`, `tecnologia` o `software`, y el botón "Descargar" tiene que pasar a ser un enlace al pliego oficial.
+7. Dominio: en `src/build.py` figura `https://www.pliegoestudio.com.ar/` como provisorio. Hay que reemplazarlo por la dirección real del sitio antes de publicarlo, porque se usa en la URL canónica, el `robots.txt` y el `sitemap.xml`.
 
 ## Revisión legal pendiente
 
@@ -53,8 +55,8 @@ Los textos citan la Ley 5571, el Decreto 3056/04, la Ley 3079 y la Ley 3460 a pa
 
 Ya está hecho:
 
-- Título y descripción pensados para la búsqueda "abogada licitaciones Corrientes".
-- Un solo H1 y subtítulos con las búsquedas principales: proveedor del Estado, Registro de Proveedores, licitación pública, obra pública, impugnaciones.
+- Título y descripción pensados para búsquedas como "licitaciones Corrientes", "licitaciones de obras en Corrientes" y "licitaciones de tecnología en Corrientes".
+- Un solo H1 y subtítulos con las búsquedas principales: licitaciones abiertas por rubro, obras, mantenimiento, tecnología, software, asesoría para presentar una oferta.
 - Datos estructurados para Google: estudio jurídico, sitio y preguntas frecuentes.
 - Etiquetas para compartir en redes, idioma es-AR y ubicación en Corrientes.
 - Página liviana, sin librerías, con tipografías propias precargadas para que el texto no salte al cargar.
@@ -64,4 +66,5 @@ Falta después de publicar:
 1. Registrar el dominio y publicar el sitio con HTTPS.
 2. Crear el Perfil de Empresa en Google con el mismo nombre, dirección y teléfono que figuran en la web.
 3. Dar de alta el sitio en Google Search Console y enviar el `sitemap.xml`.
-4. Sumar páginas de guía, una por tema: cómo inscribirse como proveedor, cómo impugnar una preadjudicación, garantías, obra pública.
+4. Dar a cada licitación su propia página, con el objeto y el organismo en el título: son las búsquedas que más visitas traen.
+5. Sumar páginas de guía por rubro: cómo presentarse a una licitación de obra, de mantenimiento o de tecnología en Corrientes.
