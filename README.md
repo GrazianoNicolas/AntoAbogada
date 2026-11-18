@@ -33,7 +33,7 @@ El título, la descripción y el dominio del sitio se cambian al principio de `s
 
 En `src/pliego-web.html` están marcados con `class="completar"`:
 
-1. Nombre y apellido de la abogada, matrícula y formación (sección "El estudio").
+1. Nombre y apellido de la abogada, matrícula y formación (sección "Quién soy").
 2. WhatsApp, correo, dirección y horario (sección "Contacto").
 3. Número de WhatsApp del formulario: al final del archivo, `var WHATSAPP = ''`. Va en formato internacional sin signos, por ejemplo `5493794000000`.
 4. Foto de la abogada, en lugar del recuadro punteado.
