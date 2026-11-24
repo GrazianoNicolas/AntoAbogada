@@ -1,8 +1,31 @@
-<title>Pliego Estudio Jurídico</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Besley:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap">
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abogada que analiza licitaciones en Corrientes | Pliego</title>
+<meta name="description" content="Soy abogada y analizo procesos de licitación en la Provincia de Corrientes. Trabajé con licitaciones de obras, de mantenimiento y de tecnología.">
+<link rel="canonical" href="https://www.pliegoestudio.com.ar/quien-soy/">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="AR-W">
+<meta name="geo.placename" content="Corrientes">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Pliego Estudio Jurídico">
+<meta property="og:title" content="Abogada que analiza licitaciones en Corrientes | Pliego">
+<meta property="og:description" content="Soy abogada y analizo procesos de licitación en la Provincia de Corrientes. Trabajé con licitaciones de obras, de mantenimiento y de tecnología.">
+<meta property="og:url" content="https://www.pliegoestudio.com.ar/quien-soy/">
+<meta property="og:image" content="https://www.pliegoestudio.com.ar/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F4A3C">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../marca/isotipo.png">
+<link rel="preload" href="../fuentes/besley.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fuentes/public-sans.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Besley";font-style:normal;font-weight:500 700;font-display:swap;src:url(../fuentes/besley.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Public Sans";font-style:normal;font-weight:400 700;font-display:swap;src:url(../fuentes/public-sans.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(../fuentes/plex-mono-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(../fuentes/plex-mono-500.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
-/* Layout: columna de lectura sobre papel frío; el único gesto fuerte es la carátula de expediente con su sello en el hero. Las bandas verdes quedan para el proceso y el contacto. */
+/* Layout: columna de lectura sobre papel frío; el único gesto fuerte es la carátula de expediente con su sello en el inicio. Cada página abre con su ruta y su título, y cierra con una banda verde que lleva a la consulta. */
 :root{
   --papel:#F5F8F5; --papel-2:#E8EFEA; --tinta:#13221D; --tinta-2:#4A5A52; --linea:#C9D5CD;
   --marca:#0F4A3C; --sombra:rgba(19,34,29,.4);
@@ -38,6 +61,8 @@ h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;font-weight:600}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+.salto{position:absolute;left:-999rem;top:0;z-index:40;background:var(--marca);color:var(--papel);padding:.8rem 1rem;font-weight:600}
+.salto:focus{left:max(20px,env(safe-area-inset-left,0px));top:calc(env(safe-area-inset-top,0px) + .5rem)}
 .wrap{max-width:72rem;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 
 /* Aviso de prototipo */
@@ -56,7 +81,7 @@ a{color:inherit}
 .nav{display:flex;gap:1.5rem;align-items:center;font-size:.95rem}
 .nav-links{display:flex;gap:1.5rem;align-items:center}
 .nav-links .lnk{padding-block:.6rem}
-.menu-btn{display:none}
+.menu-btn,.nav .lnk--inicio{display:none}
 .nav .lnk{text-decoration:none;color:var(--tinta-2)}
 .nav .lnk:hover{color:var(--tinta)}
 @media (max-width:900px){
@@ -68,6 +93,7 @@ a{color:inherit}
   .top.abierto .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .nav-links{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--papel);border-bottom:1px solid var(--linea);box-shadow:0 14px 24px -18px var(--sombra);padding-block:.25rem .75rem;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
   .top.abierto .nav-links{visibility:visible;opacity:1;transform:none;transition:opacity .2s ease,transform .25s ease,visibility 0s}
+  .nav .nav-links .lnk--inicio{display:block}
   .nav .nav-links .lnk{display:block;padding:.9rem 0;border-bottom:1px solid var(--linea);font-size:1.05rem;color:var(--tinta)}
   .nav .nav-links .lnk:last-child{border-bottom:0}
   .nav .nav-links .lnk::after{display:none}
@@ -82,6 +108,8 @@ a{color:inherit}
 .btn--sec:hover{background:var(--papel-2)}
 .btn--banda{background:var(--acento-banda);color:var(--acento-banda-fg)}
 .btn--banda:hover{filter:brightness(1.06)}
+.btn--banda-sec{border-color:var(--banda-fg);color:var(--banda-fg);background:transparent}
+.btn--banda-sec:hover{background:var(--banda-2)}
 .btn--chico{padding:.6rem .9rem;font-size:.92rem;min-height:2.75rem}
 
 /* Piezas comunes */
@@ -90,11 +118,21 @@ a{color:inherit}
 .eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--acento)}
 .sec-head{display:grid;gap:.8rem;max-width:44rem;margin-bottom:2.5rem}
 .sec-head h2{font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.01em}
+.sec-head h1{font-size:clamp(1.9rem,4vw,2.9rem);letter-spacing:-.015em}
 .sec-head p:not(.eyebrow){color:var(--tinta-2)}
 .norma{font-family:var(--mono);font-size:.74rem;letter-spacing:.02em;color:var(--marca)}
 
+/* Apertura de las páginas internas: ruta, título y bajada */
+.pag{padding-top:clamp(1.5rem,4vw,3rem)}
+.miga{font-family:var(--mono);font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-2)}
+.miga ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.miga li + li::before{content:"/";margin-right:.5rem;color:var(--tinta-2)}
+.miga a{display:inline-block;padding-block:.55rem;color:inherit;text-decoration:none}
+.miga a:hover{color:var(--tinta)}
+.miga [aria-current]{color:var(--acento)}
+
 /* Hero */
-.hero{padding-block:clamp(2.5rem,6vw,4.5rem)}
+.hero{padding-block:clamp(2.5rem,6vw,4.5rem);overflow-x:hidden;overflow-x:clip}
 .hero .wrap{display:grid;gap:clamp(2.5rem,5vw,4rem);grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center}
 @media (max-width:960px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.caratula{max-width:34rem}}
 .hero-txt{display:grid;gap:1.4rem;min-width:0}
@@ -127,7 +165,8 @@ a{color:inherit}
 /* A quién acompaño */
 .clientes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}
 @media (max-width:900px){.clientes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.clientes{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.clientes{gap:1.5rem 1.25rem}}
+@media (max-width:339px){.clientes{grid-template-columns:minmax(0,1fr)}}
 .clientes article{display:grid;gap:.5rem;align-content:start;border-top:2px solid var(--marca);padding-top:1rem}
 .clientes h3{font-size:1.15rem}
 .clientes p{color:var(--tinta-2);font-size:.98rem}
@@ -141,7 +180,21 @@ a{color:inherit}
 .lista tr.lejos{opacity:.5}
 .lista tr.afin th::after{content:"Se acerca a su empresa";display:inline-block;margin-left:.6rem;vertical-align:middle;white-space:nowrap;font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);border:1px solid var(--acento);padding:.12rem .4rem}
 .bajar{font:600 .92rem/1 var(--texto);min-height:2.75rem;padding:0;border:0;background:none;color:var(--marca);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
-.sec--alt thead th{background:var(--papel)}
+.lista td.acc{white-space:nowrap}
+@media (max-width:700px){
+  .tabla--lista{border:0;overflow:visible}
+  .lista{display:block;min-width:0}
+  .lista thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .lista tbody{display:grid;gap:.9rem}
+  .lista tr{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.3rem 1rem;border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1rem 1rem .5rem}
+  .lista th,.lista td{display:block;padding:0;border:0}
+  .lista td:nth-child(1),.lista tbody th{grid-column:1/-1}
+  .lista tbody th{min-width:0;font-size:1.08rem;line-height:1.3;padding-bottom:.25rem}
+  .lista td:nth-child(4){text-align:right;white-space:nowrap}
+  .lista td:nth-child(4)::before{content:"Abre el "}
+  .lista td.acc{text-align:right}
+}
+.lista .pedir{display:inline-flex;align-items:center;min-height:2.75rem;font-weight:600;font-size:.92rem;color:var(--acento);text-underline-offset:.2em}
 
 /* Planes */
 .planes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;align-items:stretch}
@@ -149,7 +202,7 @@ a{color:inherit}
 .plan{display:flex;flex-direction:column;gap:.75rem;min-width:0;background:var(--papel);border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1.5rem}
 .plan--dest{border-color:var(--marca);box-shadow:7px 7px 0 var(--linea)}
 .plan-tag{font-family:var(--mono);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--acento)}
-.plan h3{font-size:1.45rem}
+.plan h2{font-size:1.45rem}
 .plan > p:not(.plan-tag){color:var(--tinta-2)}
 .plan ul{list-style:none;padding:.9rem 0 0;display:grid;gap:.5rem;border-top:1px solid var(--linea)}
 .plan li{display:grid;grid-template-columns:.9rem minmax(0,1fr);gap:.4rem}
@@ -157,12 +210,22 @@ a{color:inherit}
 .plan .btn{margin-top:auto;align-self:flex-start}
 .plan ul + .btn{margin-top:auto}
 .plan-nota{font-size:.9rem;margin-top:auto}
+.plan .plan-nota + .btn{margin-top:0}
 
 /* Bandas */
 .banda{background:var(--banda);color:var(--banda-fg)}
 .banda .eyebrow{color:var(--acento-banda)}
 .banda .sec-head p:not(.eyebrow){color:var(--banda-fg-2)}
 .banda :focus-visible{outline-color:var(--acento-banda)}
+.banda .miga,.banda .miga li + li::before{color:var(--banda-fg-2)}
+.banda .miga a:hover{color:var(--banda-fg)}
+.banda .miga [aria-current]{color:var(--acento-banda)}
+.banda p a{color:var(--banda-fg);text-decoration-color:var(--acento-banda);text-underline-offset:.2em}
+.cierre{padding-block:clamp(2.5rem,6vw,4rem)}
+.cierre .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem 3rem}
+.cierre-txt{display:grid;gap:.5rem;max-width:38rem;min-width:0}
+.cierre h2{font-size:clamp(1.45rem,2.6vw,1.9rem)}
+.cierre p{color:var(--banda-fg-2)}
 
 /* Cómo trabajo */
 .pasos{list-style:none;padding:0;counter-reset:paso;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}
@@ -172,12 +235,14 @@ a{color:inherit}
 .pasos li::before{content:counter(paso);font-family:var(--display);font-weight:500;font-size:2.4rem;line-height:1;color:var(--acento-banda)}
 .pasos h3{font-size:1.15rem}
 .pasos p{color:var(--banda-fg-2);font-size:.98rem}
+.sigue{display:grid;gap:1.25rem;margin-top:2.5rem}
+.sigue p{color:var(--banda-fg-2);max-width:44rem}
 
 /* Guía */
 .etapas{list-style:none;padding:0;max-width:56rem;border-bottom:1px solid var(--linea)}
 .etapas li{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:.4rem 2rem;padding-block:1.15rem;border-top:1px solid var(--linea)}
 @media (max-width:640px){.etapas li{grid-template-columns:minmax(0,1fr)}}
-.etapas h3{font-size:1.12rem}
+.etapas h2{font-size:1.12rem}
 .etapas div{display:grid;gap:.4rem;min-width:0}
 .etapas p:not(.norma){color:var(--tinta-2)}
 .sub{font-size:1.35rem;margin:3rem 0 1rem}
@@ -198,7 +263,7 @@ td.norma{white-space:nowrap}
 .faq{border-top:1px solid var(--linea)}
 .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding-block:1.1rem}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary h3{font-size:1.1rem;line-height:1.3}
+.faq summary h2{font-size:1.1rem;line-height:1.3}
 .faq summary::after{content:"+";font-family:var(--mono);font-size:1.2rem;color:var(--acento);flex:none}
 .faq[open] summary::after{content:"−"}
 .faq p{padding-bottom:1.3rem;color:var(--tinta-2);max-width:44rem}
@@ -209,20 +274,22 @@ td.norma{white-space:nowrap}
 .foto{aspect-ratio:4/5;max-width:100%;border:1.5px dashed var(--tinta-2);display:grid;place-items:center;text-align:center;padding:1rem;font-family:var(--mono);font-size:.78rem;color:var(--tinta-2);background:var(--papel)}
 @media (max-width:760px){.foto{max-width:14rem}}
 .bio{display:grid;gap:1rem;max-width:40rem}
-.bio h2{font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.01em}
 .bio p{color:var(--tinta-2)}
 .ficha{display:grid;gap:.3rem;font-family:var(--mono);font-size:.82rem;border-top:1px solid var(--linea);padding-top:1rem}
 .ficha div{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.75rem}
 .ficha dt{color:var(--tinta-2)}
 
 /* Contacto */
-.contacto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
-@media (max-width:820px){.contacto{grid-template-columns:minmax(0,1fr)}}
-.contacto .sec-head{margin-bottom:1.75rem}
+.contacto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"cab form" "vias form";gap:1.75rem clamp(2rem,6vw,5rem);align-items:start}
+@media (max-width:820px){.contacto{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"cab" "form" "vias";gap:2rem}}
+.contacto .sec-head{grid-area:cab;margin-bottom:0}
+.contacto form{grid-area:form}
+.contacto .vias{grid-area:vias}
 .vias{display:grid;gap:.9rem}
 .vias div{display:grid;grid-template-columns:6rem minmax(0,1fr);gap:1rem;border-top:1px solid var(--banda-linea);padding-top:.9rem}
 .vias dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--banda-fg-2);padding-top:.2rem}
 .vias dd{overflow-wrap:anywhere}
+.vias a{color:inherit;text-decoration-color:var(--acento-banda);text-underline-offset:.2em}
 .banda .completar{border-bottom-color:var(--acento-banda)}
 form{display:grid;gap:1rem;min-width:0}
 .fila{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
@@ -231,6 +298,9 @@ label{display:grid;gap:.35rem;font-size:.88rem;font-weight:500;color:var(--banda
 input,select,textarea{font:inherit;font-size:1rem;font-weight:400;width:100%;padding:.7rem .8rem;border:1px solid var(--banda-linea);border-radius:.3rem;background:var(--banda-2);color:var(--banda-fg)}
 textarea{min-height:7rem;resize:vertical}
 input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--acento-banda);outline-offset:1px}
+.elegida{border-left:3px solid var(--acento-banda);padding:.6rem .9rem;background:var(--banda-2);font-size:.92rem;color:var(--banda-fg)}
+.elegida b{font-weight:600}
+.form-nota{font-size:.88rem;color:var(--banda-fg-2)}
 .previa{border:1px dashed var(--banda-linea);padding:1rem;display:grid;gap:.5rem;font-size:.9rem;color:var(--banda-fg-2)}
 .previa pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:.82rem;color:var(--banda-fg)}
 
@@ -258,8 +328,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .nav .lnk.activo{color:var(--tinta)}
 .logo svg{transition:transform .25s ease}
 .logo:hover svg{transform:rotate(-6deg)}
-.plan h3,.clientes h3,.faq summary h3{transition:color .2s ease}
-.plan:hover h3,.clientes article:hover h3,.faq summary:hover h3{color:var(--marca)}
+.plan h2,.clientes h3,.faq summary h2{transition:color .2s ease}
+.plan:hover h2,.clientes article:hover h3,.faq summary:hover h2{color:var(--marca)}
 .chip{transition:background-color .2s ease,border-color .2s ease,color .2s ease}
 .lista tr{transition:opacity .25s ease}
 .faq summary::after{transition:transform .25s ease}
@@ -294,6 +364,15 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   .car-pasos li:nth-child(7){animation-delay:1.27s}
   .sello{animation:sellar .5s 1.75s cubic-bezier(.3,1.3,.5,1) both}
   .faq[open] > p{animation:abrir .3s ease both}
+  /* Páginas internas: la ruta, el título y la bajada entran igual que el texto del inicio */
+  .pag .sec-head > *{animation:subir .6s cubic-bezier(.2,.7,.2,1) both}
+  .pag .sec-head > :nth-child(2){animation-delay:.07s}
+  .pag .sec-head > :nth-child(3){animation-delay:.14s}
+  /* Paso de una página a otra: el contenido se funde y el encabezado queda quieto */
+  @view-transition{navigation:auto}
+  .top{view-transition-name:encabezado}
+  ::view-transition-old(root){animation-duration:.16s}
+  ::view-transition-new(root){animation-duration:.28s}
   /* Aparición al hacer scroll: el script agrega .anim y .rv; sin script todo queda visible */
   html.anim .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
   html.anim .rv.visto{opacity:1;transform:none}
@@ -303,208 +382,41 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   .btn:hover,.logo:hover svg{transform:none}
 }
 </style>
-<!--BODY-->
-<!--PROTO--><div class="aviso"><div class="wrap">Prototipo para revisión. Los datos con <span class="completar">subrayado punteado</span> son provisorios y hay que reemplazarlos por los reales.</div></div><!--/PROTO-->
-
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.pliegoestudio.com.ar/"}, {"@type": "ListItem", "position": 2, "name": "Quién soy", "item": "https://www.pliegoestudio.com.ar/quien-soy/"}]}]</script>
+</head>
+<body>
+<a class="salto" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="Pliego, estudio jurídico. Ir al inicio">
+    <a class="logo" href="../" aria-label="Pliego, estudio jurídico. Ir al inicio">
       <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 4h21l10 10v30H9z" fill="var(--marca)"/><path d="M30 4l10 10H30z" fill="var(--acento)"/><path fill-rule="evenodd" d="M16.5 17h8.5a7 7 0 0 1 0 14h-4v8h-4.5zM21 21v6h4a3 3 0 0 0 0-6z" fill="var(--papel)"/></svg>
       <span class="logo-txt"><b>Pliego</b><small>Estudio jurídico</small></span>
     </a>
-    <nav class="nav" aria-label="Secciones">
+    <nav class="nav" aria-label="Páginas del sitio">
       <div class="nav-links" id="menu">
-        <a class="lnk" href="#licitaciones">Licitaciones</a>
-        <a class="lnk" href="#planes">Planes</a>
-        <a class="lnk" href="#proceso">Cómo funciona</a>
-        <a class="lnk" href="#abogada">Quién soy</a>
-        <a class="lnk" href="#preguntas">Preguntas</a>
+        <a class="lnk lnk--inicio" href="../">Inicio</a>
+        <a class="lnk" href="../licitaciones/">Licitaciones</a>
+        <a class="lnk" href="../planes/">Planes</a>
+        <a class="lnk" href="../guia/">Guía</a>
+        <a class="lnk activo" aria-current="page" href="../quien-soy/">Quién soy</a>
+        <a class="lnk" href="../preguntas/">Preguntas</a>
       </div>
-      <a class="btn btn--pri btn--chico" href="#contacto">Consultar</a>
+      <a class="btn btn--pri btn--chico" href="../contacto/">Consultar</a>
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
 
-<main id="inicio">
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-txt">
-        <p class="eyebrow">Abogada · Corrientes, Argentina</p>
-        <h1>Licitaciones de obras, mantenimiento y tecnología en <em>Corrientes</em></h1>
-        <p class="lead">Soy abogada y analizo procesos de licitación. Acá encuentra las licitaciones de la Provincia y de los municipios que publican su información, sólo en los rubros que conozco por haber trabajado en ellos.</p>
-        <div class="cta">
-          <a class="btn btn--pri" href="#licitaciones">Ver licitaciones</a>
-          <a class="btn btn--sec" href="#planes">Conocer los planes</a>
-        </div>
-        <ul class="datos">
-          <li>Provincia y municipios</li>
-          <li>Descarga gratuita</li>
-          <li>Asesoría para presentar su oferta</li>
-        </ul>
-      </div>
-
-      <aside class="caratula" aria-label="Ejemplo de una licitación analizada: qué documentación está en regla, cuál falta y cuál hay que mejorar">
-        <div class="car-top"><span>Provincia de Corrientes</span><span>Ejemplo</span></div>
-        <p class="car-tit">Licitación pública</p>
-        <dl class="car-campos">
-          <div><dt>Rubro</dt><dd>Tecnología · desarrollo de software</dd></div>
-          <div><dt>Afinidad</dt><dd>Alta con su empresa</dd></div>
-        </dl>
-        <ol class="car-pasos">
-          <li><b>Registro de Proveedores</b><span>En regla</span></li>
-          <li><b>Constancias fiscales</b><span>En regla</span></li>
-          <li><b>Pliegos firmados</b><span>En regla</span></li>
-          <li><b>Garantía de oferta</b><span class="falta">Falta</span></li>
-          <li><b>Antecedentes</b><span class="mejorar">A mejorar</span></li>
-          <li><b>Propuesta técnica</b><span class="mejorar">A mejorar</span></li>
-          <li><b>Oferta económica</b><span>En regla</span></li>
-        </ol>
-        <div class="car-pie">
-          <small>Fs. 1</small>
-          <div class="sello" aria-hidden="true"><span>Licitación</span><strong>Analizada</strong><span>por una abogada</span></div>
-        </div>
-      </aside>
+<main id="contenido">
+<section class="sec pag">
+  <div class="wrap">
+    <div class="sec-head">
+      <nav class="miga" aria-label="Ruta de navegación"><ol><li><a href="../">Inicio</a></li><li aria-current="page">Quién soy</li></ol></nav>
+      <h1>Una abogada que analiza procesos de licitación</h1>
     </div>
-  </section>
-
-  <section class="sec sec--alt" id="rubros">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Rubros que analizo</p>
-        <h2>No están todas las licitaciones: están las que conozco</h2>
-        <p>Trabajé con licitaciones de obras y de mantenimiento, y hoy con las de tecnología. El sitio abarca sólo esos rubros.</p>
-      </div>
-      <div class="clientes">
-        <article>
-          <h3>Obras</h3>
-          <p>Licitaciones de obra pública de la Provincia y de los municipios.</p>
-        </article>
-        <article>
-          <h3>Mantenimiento</h3>
-          <p>Contrataciones de servicios de mantenimiento.</p>
-        </article>
-        <article>
-          <h3>Tecnología</h3>
-          <p>Adquisición de tecnología, bienes y servicios.</p>
-        </article>
-        <article>
-          <h3>Software y soporte</h3>
-          <p>Desarrollo de software y servicios de soporte.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="licitaciones">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Licitaciones</p>
-        <h2>Licitaciones abiertas en Corrientes, por rubro</h2>
-        <p>Elija a qué se dedica su empresa y el listado le muestra primero las que más se acercan. Descargarlas es gratis.</p>
-      </div>
-      <div class="filtros" role="group" aria-label="Rubro de su empresa">
-        <button class="chip" type="button" data-rubro="todas" aria-pressed="true">Todas</button>
-        <button class="chip" type="button" data-rubro="obras" aria-pressed="false">Obras</button>
-        <button class="chip" type="button" data-rubro="mantenimiento" aria-pressed="false">Mantenimiento</button>
-        <button class="chip" type="button" data-rubro="tecnologia" aria-pressed="false">Tecnología</button>
-        <button class="chip" type="button" data-rubro="software" aria-pressed="false">Software y soporte</button>
-      </div>
-      <div class="tabla">
-        <table class="lista" id="lista">
-          <thead>
-            <tr><th scope="col">Rubro</th><th scope="col">Objeto</th><th scope="col">Organismo</th><th scope="col">Apertura</th><th scope="col">Pliego</th></tr>
-          </thead>
-          <tbody>
-            <tr data-rubro="obras"><td class="norma">Obras</td><th scope="row">Refacción y ampliación de un edificio escolar</th><td>Organismo provincial</td><td><span class="completar">12/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
-            <tr data-rubro="software"><td class="norma">Software y soporte</td><th scope="row">Desarrollo de un sistema de gestión de expedientes</th><td>Municipio</td><td><span class="completar">15/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
-            <tr data-rubro="mantenimiento"><td class="norma">Mantenimiento</td><th scope="row">Mantenimiento de ascensores y equipos de climatización</th><td>Organismo provincial</td><td><span class="completar">18/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
-            <tr data-rubro="tecnologia"><td class="norma">Tecnología</td><th scope="row">Adquisición de computadoras y equipamiento de red</th><td>Organismo provincial</td><td><span class="completar">21/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
-            <tr data-rubro="obras"><td class="norma">Obras</td><th scope="row">Pavimentación de calles urbanas</th><td>Municipio</td><td><span class="completar">22/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
-            <tr data-rubro="software"><td class="norma">Software y soporte</td><th scope="row">Soporte y mantenimiento de sistemas informáticos</th><td>Organismo provincial</td><td><span class="completar">28/12/2026</span></td><td><button class="bajar" type="button">Descargar</button></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="nota" id="nota-lista" aria-live="polite"><span class="completar">Listado de ejemplo</span>, para mostrar cómo se verá. Las licitaciones reales se toman de las publicaciones oficiales de la Provincia y de los municipios.</p>
-    </div>
-  </section>
-
-  <section class="sec sec--alt" id="planes">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Planes</p>
-        <h2>Empiece gratis y pida asesoría cuando quiera presentarse</h2>
-        <p>Son tres planes. Se empieza por el básico, que es gratuito, y el tercero se suma más adelante.</p>
-      </div>
-      <div class="planes">
-        <article class="plan">
-          <p class="plan-tag">Gratuito</p>
-          <h3>Básico</h3>
-          <p>Para saber qué se está licitando en su rubro.</p>
-          <ul>
-            <li>Descarga de las licitaciones publicadas en el sitio.</li>
-            <li>Indicación de cuáles se acercan más a su empresa o pyme.</li>
-          </ul>
-          <a class="btn btn--sec" href="#licitaciones">Ver licitaciones</a>
-        </article>
-        <article class="plan plan--dest">
-          <p class="plan-tag"><span class="completar">Precio a definir</span></p>
-          <h3>Asesoría</h3>
-          <p>Para cuando decide presentarse a una licitación.</p>
-          <ul>
-            <li>El análisis de esa licitación.</li>
-            <li>Qué documentación le falta.</li>
-            <li>Qué documentación tiene pero hay que mejorar.</li>
-            <li>La oferta diseñada para su empresa.</li>
-          </ul>
-          <a class="btn btn--pri" href="#contacto">Pedir asesoría</a>
-        </article>
-        <article class="plan">
-          <p class="plan-tag">Próximamente</p>
-          <h3>Seguimiento completo</h3>
-          <p>Para quien quiere acompañamiento de principio a fin.</p>
-          <ul>
-            <li>Seguimiento de todo el proceso, hasta que termina la licitación.</li>
-          </ul>
-          <p class="plan-nota">Una licitación es un proceso largo, en el que cambian muchas cosas. Por eso este plan se suma más adelante.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec banda" id="proceso">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Cómo funciona</p>
-        <h2>De ver la licitación a presentar su oferta</h2>
-      </div>
-      <ol class="pasos">
-        <li>
-          <h3>Elija su rubro</h3>
-          <p>Entre al listado y marque a qué se dedica su empresa: obras, mantenimiento, tecnología o software y soporte.</p>
-        </li>
-        <li>
-          <h3>Descargue las licitaciones</h3>
-          <p>Es gratis. El sitio le señala cuáles se acercan más a su empresa o pyme.</p>
-        </li>
-        <li>
-          <h3>Pida la asesoría</h3>
-          <p>Si quiere presentarse, analizo esa licitación y le digo qué documentación le falta y cuál tiene que mejorar.</p>
-        </li>
-        <li>
-          <h3>Presente su oferta</h3>
-          <p>Recibe la oferta diseñada para su empresa, lista para presentar.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="sec" id="abogada">
-    <div class="wrap estudio">
+    <div class="estudio">
       <div class="foto" role="img" aria-label="Espacio reservado para la foto de la abogada">Foto de la abogada<br>(a incorporar)</div>
       <div class="bio">
-        <p class="eyebrow">Quién soy</p>
-        <h2>Una abogada que analiza procesos de licitación</h2>
         <p>Soy <span class="completar">Nombre Apellido</span>, abogada. Mi trabajo es analizar procesos de licitación en la Provincia de Corrientes.</p>
         <p>Trabajé con licitaciones de obras y de mantenimiento, y hoy con las de tecnología: adquisición de tecnología, bienes y servicios, desarrollo de software y soporte.</p>
         <p>Por eso en este sitio no están todas las licitaciones. Están las de los rubros que ya conozco, porque son las que puedo analizar bien.</p>
@@ -515,192 +427,21 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
         </dl>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="sec sec--alt" id="guia">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Guía rápida</p>
-        <h2>Cómo es una licitación pública en Corrientes, paso a paso</h2>
-        <p>Un resumen para ubicarse. Cada llamado tiene su propio pliego, que es el que fija las reglas del caso.</p>
-      </div>
-      <ol class="etapas">
-        <li>
-          <h3>1. Llamado</h3>
-          <div>
-            <p>El organismo convoca a presentar ofertas. La licitación pública es la regla general y el llamado se publica en el Boletín Oficial con anticipación a la fecha de apertura.</p>
-            <p class="norma">Ley 5571 · arts. 108 y 114</p>
-          </div>
-        </li>
-        <li>
-          <h3>2. Pliego</h3>
-          <div>
-            <p>El pliego de bases y condiciones generales y el pliego particular dicen qué se compra, qué documentación se exige y cómo se evalúa. Es el momento de hacer consultas.</p>
-            <p class="norma">Decreto 3056/04 · pliegos</p>
-          </div>
-        </li>
-        <li>
-          <h3>3. Oferta</h3>
-          <div>
-            <p>Se presenta en sobre cerrado, con los pliegos firmados y la garantía de oferta, que como regla equivale al 1 % del presupuesto oficial. La oferta debe mantenerse 30 días desde la apertura, salvo que el pliego fije otro plazo.</p>
-            <p class="norma">Decreto 3056/04 · arts. 26 y 35</p>
-          </div>
-        </li>
-        <li>
-          <h3>4. Apertura</h3>
-          <div>
-            <p>Los sobres se abren en un acto público, en el día y la hora fijados. Se labra un acta y los oferentes pueden dejar asentadas sus observaciones.</p>
-            <p class="norma">Acto de apertura</p>
-          </div>
-        </li>
-        <li>
-          <h3>5. Preadjudicación</h3>
-          <div>
-            <p>Una comisión compara las ofertas válidas y recomienda a quién adjudicar. A igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes.</p>
-            <p class="norma">Decreto 3056/04 · art. 43 · Ley 5571 · art. 112</p>
-          </div>
-        </li>
-        <li>
-          <h3>6. Adjudicación</h3>
-          <div>
-            <p>La autoridad competente adjudica por acto administrativo. El adjudicatario integra la garantía de cumplimiento y recibe la orden de compra o firma el contrato.</p>
-            <p class="norma">Acto administrativo · Ley 3460</p>
-          </div>
-        </li>
-        <li>
-          <h3>7. Ejecución y cobro</h3>
-          <div>
-            <p>Se entregan los bienes o se presta el servicio, el organismo da la recepción y se tramita el pago. El reglamento prevé multas por demora y sanciones en el Registro de Proveedores.</p>
-            <p class="norma">Decreto 3056/04 · arts. 74 y 76</p>
-          </div>
-        </li>
-      </ol>
-
-      <h3 class="sub">Los procedimientos de contratación de la Provincia</h3>
-      <div class="tabla">
-        <table>
-          <thead>
-            <tr><th scope="col">Procedimiento</th><th scope="col">Cuándo se usa</th><th scope="col">Cómo se convoca</th><th scope="col">Ley 5571</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Licitación pública</th><td>Es la regla general para las contrataciones del Estado provincial.</td><td>Convocatoria abierta, publicada en el Boletín Oficial.</td><td class="norma">art. 108</td></tr>
-            <tr><th scope="row">Licitación privada</th><td>Contrataciones que no superan el tope de monto fijado por la ley.</td><td>Invitación directa a proveedores del rubro.</td><td class="norma">art. 109, inc. 1</td></tr>
-            <tr><th scope="row">Concurso de precios</th><td>Compras de menor monto.</td><td>Pedido de cotizaciones a varios proveedores.</td><td class="norma">art. 109, inc. 2</td></tr>
-            <tr><th scope="row">Contratación directa</th><td>Casos de excepción previstos en la ley, como urgencia, exclusividad o una licitación que quedó desierta.</td><td>Sin competencia de ofertas, con autorización fundada.</td><td class="norma">art. 109, inc. 3</td></tr>
-            <tr><th scope="row">Concurso de antecedentes</th><td>Cuando se evalúa la capacidad técnica, científica o artística.</td><td>Público o privado, según el caso.</td><td class="norma">art. 111</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="nota">Los topes de monto de cada procedimiento se actualizan periódicamente. Antes de ofertar conviene verificar los valores vigentes.</p>
-      <ul class="fuentes" aria-label="Fuentes oficiales">
-        <li><a href="https://hcdcorrientes.gov.ar/digesto/legislacion/textos-actualizados/Ley5571.pdf" rel="noopener">Ley 5571, texto actualizado</a></li>
-        <li><a href="https://www.cgpcorrientes.gob.ar/proveedores-component" rel="noopener">Registro de Proveedores, Contaduría General</a></li>
-        <li><a href="https://www.cgpcorrientes.gob.ar/licitaciones-component" rel="noopener">Licitaciones publicadas por la Contaduría General</a></li>
-        <li><a href="https://boletinoficial.corrientes.gob.ar/" rel="noopener">Boletín Oficial de Corrientes</a></li>
-      </ul>
+<section class="banda cierre">
+  <div class="wrap">
+    <div class="cierre-txt">
+      <h2>¿Quiere consultarme por una licitación?</h2>
+      <p>Cuénteme a qué se dedica su empresa y qué licitación le interesa.</p>
     </div>
-  </section>
-
-  <section class="sec" id="preguntas">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2>Preguntas sobre las licitaciones y los planes</h2>
-      </div>
-      <div class="faqs">
-        <details class="faq" open>
-          <summary><h3>¿Qué licitaciones voy a encontrar en este sitio?</h3></summary>
-          <p>Licitaciones de la Provincia de Corrientes y de los municipios que publican su información, en cuatro rubros: obras, mantenimiento, tecnología (adquisición de tecnología, bienes y servicios) y software y soporte.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Por qué no están todas las licitaciones de Corrientes?</h3></summary>
-          <p>Porque sólo incluyo los rubros en los que trabajé. Son los que conozco y, por eso, los que puedo analizar bien.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Descargar las licitaciones tiene costo?</h3></summary>
-          <p>No. El plan básico es gratuito: puede descargar las licitaciones publicadas en el sitio y ver cuáles se acercan más a su empresa.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Cómo sé qué licitación le conviene a mi empresa?</h3></summary>
-          <p>En el listado elige a qué se dedica su empresa y el sitio le muestra primero las licitaciones que más se acercan a ese rubro. Si después quiere saber si está en condiciones de presentarse, eso se ve en la asesoría.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Qué incluye la asesoría para presentarse a una licitación?</h3></summary>
-          <p>El análisis de esa licitación, qué documentación le falta, qué documentación tiene pero hay que mejorar y la oferta diseñada para su empresa.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Me acompaña durante todo el proceso de la licitación?</h3></summary>
-          <p>Ese será un tercer plan, que todavía no está disponible. Una licitación es un proceso muy largo, en el que cambian muchas cosas, y la mayoría dura dos o tres años. Por eso el seguimiento completo se suma más adelante.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿De dónde sale la información de las licitaciones?</h3></summary>
-          <p>De las publicaciones oficiales: el Boletín Oficial de la Provincia, el portal de la Contaduría General y los sitios de los municipios que publican sus llamados.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Tengo que estar inscripto como proveedor del Estado para ofertar?</h3></summary>
-          <p>En general conviene estarlo antes de ofertar. La inscripción se tramita ante el Registro de Proveedores de la Contaduría General de la Provincia y se actualiza cada dos años. Si falta o está vencida, es una de las cosas que aparecen en la asesoría como documentación a completar.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>¿Qué garantías se piden en una licitación?</h3></summary>
-          <p>Lo habitual es una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento si resulta adjudicatario. Se pueden constituir de varias formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado indica el monto y las formas aceptadas.</p>
-        </details>
-        <details class="faq">
-          <summary><h3>Mi empresa es de otra provincia, ¿puedo ofertar en Corrientes?</h3></summary>
-          <p>Sí. Para inscribirse como proveedor tendrá que fijar un domicilio especial en la provincia. Tenga en cuenta que, a igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes.</p>
-        </details>
-      </div>
+    <div class="cta">
+      <a class="btn btn--banda" href="../contacto/">Consultar</a>
+      <a class="btn btn--banda-sec" href="../licitaciones/">Ver licitaciones</a>
     </div>
-  </section>
-
-  <section class="sec banda" id="contacto">
-    <div class="wrap contacto">
-      <div>
-        <div class="sec-head">
-          <p class="eyebrow">Contacto</p>
-          <h2>Pida su asesoría</h2>
-          <p>Cuénteme a qué se dedica su empresa y a qué licitación quiere presentarse. Si ya hay una fecha de apertura, avíseme en el mensaje.</p>
-        </div>
-        <dl class="vias">
-          <div><dt>WhatsApp</dt><dd><span class="completar">+54 379 000-0000</span></dd></div>
-          <div><dt>Correo</dt><dd><span class="completar">contacto@pliegoestudio.com.ar</span></dd></div>
-          <div><dt>Estudio</dt><dd><span class="completar">Calle y número</span>, Corrientes Capital</dd></div>
-          <div><dt>Horario</dt><dd><span class="completar">Lunes a viernes, de 8 a 13 y de 17 a 20</span></dd></div>
-        </dl>
-      </div>
-
-      <form id="consulta" novalidate>
-        <div class="fila">
-          <label for="c-nombre">Nombre y apellido
-            <input id="c-nombre" name="nombre" autocomplete="name" required>
-          </label>
-          <label for="c-empresa">Empresa o actividad
-            <input id="c-empresa" name="empresa" autocomplete="organization">
-          </label>
-        </div>
-        <div class="fila">
-          <label for="c-tel">Teléfono
-            <input id="c-tel" name="tel" type="tel" autocomplete="tel">
-          </label>
-          <label for="c-tema">Tema de la consulta
-            <select id="c-tema" name="tema">
-              <option>Quiero asesoría para una licitación</option>
-              <option>Consulta sobre las licitaciones publicadas</option>
-              <option>Me interesa el seguimiento completo</option>
-              <option>Otro tema</option>
-            </select>
-          </label>
-        </div>
-        <label for="c-msj">Mensaje
-          <textarea id="c-msj" name="mensaje" placeholder="A qué se dedica su empresa y qué licitación le interesa."></textarea>
-        </label>
-        <button class="btn btn--banda" type="submit">Enviar consulta por WhatsApp</button>
-        <div class="previa" id="previa" hidden aria-live="polite">
-          <span>En el sitio publicado, este botón abre WhatsApp con el mensaje ya escrito. Así llegaría su consulta:</span>
-          <pre id="previa-txt"></pre>
-        </div>
-      </form>
-    </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <footer class="pie">
@@ -711,14 +452,15 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
         <p>Licitaciones de obras, mantenimiento y tecnología en la Provincia de Corrientes, analizadas por una abogada.</p>
       </div>
       <div>
-        <h2>Secciones</h2>
+        <h2>Páginas</h2>
         <ul>
-          <li><a href="#licitaciones">Licitaciones</a></li>
-          <li><a href="#planes">Planes</a></li>
-          <li><a href="#proceso">Cómo funciona</a></li>
-          <li><a href="#guia">Guía de licitaciones</a></li>
-          <li><a href="#preguntas">Preguntas frecuentes</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="../">Inicio</a></li>
+          <li><a href="../licitaciones/">Licitaciones abiertas</a></li>
+          <li><a href="../planes/">Planes y asesoría</a></li>
+          <li><a href="../guia/">Guía de una licitación</a></li>
+          <li><a href="../quien-soy/">Quién soy</a></li>
+          <li><a href="../preguntas/">Preguntas frecuentes</a></li>
+          <li><a href="../contacto/">Contacto</a></li>
         </ul>
       </div>
       <div>
@@ -740,6 +482,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   var WHATSAPP = '';
   var anio = document.getElementById('anio');
   if (anio) anio.textContent = new Date().getFullYear();
+  var cada = function(lista, fn){ Array.prototype.forEach.call(lista, fn); };
 
   // Sombra del encabezado al bajar
   var top = document.querySelector('.top');
@@ -764,15 +507,28 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   }
 
   // Listado: el rubro elegido pasa primero y queda marcado como cercano a la empresa
+  var RUBROS = { obras: 'Obras', mantenimiento: 'Mantenimiento', tecnologia: 'Tecnología', software: 'Software y soporte' };
   var lista = document.getElementById('lista');
   if (lista) {
     var cuerpo = lista.tBodies[0];
     var filas = Array.prototype.slice.call(cuerpo.rows);
+    // En celular las filas se muestran como tarjetas; estos roles mantienen la lectura como tabla
+    lista.setAttribute('role', 'table');
+    cada(lista.querySelectorAll('thead, tbody'), function(g){ g.setAttribute('role', 'rowgroup'); });
+    cada(lista.rows, function(f){ f.setAttribute('role', 'row'); });
+    cada(lista.querySelectorAll('thead th'), function(c){ c.setAttribute('role', 'columnheader'); });
+    cada(lista.querySelectorAll('tbody th'), function(c){ c.setAttribute('role', 'rowheader'); });
+    cada(lista.querySelectorAll('td'), function(c){ c.setAttribute('role', 'cell'); });
+    // El pedido de asesoría de cada fila lleva también el rubro de esa licitación
+    filas.forEach(function(f){
+      var a = f.querySelector('a[data-licitacion]');
+      if (a) a.setAttribute('data-rubro', RUBROS[f.getAttribute('data-rubro')] || '');
+    });
     var chips = document.querySelectorAll('.chip');
-    Array.prototype.forEach.call(chips, function(chip){
+    cada(chips, function(chip){
       chip.addEventListener('click', function(){
         var rubro = chip.getAttribute('data-rubro');
-        Array.prototype.forEach.call(chips, function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+        cada(chips, function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
         var cerca = [], resto = [];
         filas.forEach(function(f){
           var afin = rubro !== 'todas' && f.getAttribute('data-rubro') === rubro;
@@ -789,49 +545,93 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
     });
   }
 
-  var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if ('IntersectionObserver' in window) {
-    // Marca en el menú la sección que se está leyendo
-    var enlaces = {};
-    Array.prototype.forEach.call(document.querySelectorAll('.nav .lnk'), function(a){ enlaces[a.getAttribute('href').slice(1)] = a; });
-    var espia = new IntersectionObserver(function(entradas){
-      entradas.forEach(function(en){
-        var a = enlaces[en.target.id];
-        if (a && en.isIntersecting) {
-          for (var k in enlaces) enlaces[k].classList.remove('activo');
-          a.classList.add('activo');
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    for (var id in enlaces) { var s = document.getElementById(id); if (s) espia.observe(s); }
-
-    // Aparición suave de cada bloque al entrar en pantalla
-    if (!quieto) {
-      var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .etapas li, .sub, .tabla, .faqs, .estudio > *, .contacto > *');
-      var ver = new IntersectionObserver(function(entradas){
-        entradas.forEach(function(en){
-          if (en.isIntersecting || en.boundingClientRect.top < 0) { en.target.classList.add('visto'); ver.unobserve(en.target); }
-        });
-      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
-      Array.prototype.forEach.call(bloques, function(el){
-        var i = Array.prototype.indexOf.call(el.parentNode.children, el);
-        el.style.setProperty('--d', (i % 4) * 0.08 + 's');
-        el.classList.add('rv');
-        ver.observe(el);
-      });
-      document.documentElement.classList.add('anim');
+  // Los enlaces que piden una consulta llevan su dato al formulario: la licitación, el rubro o el tema.
+  // Entre páginas viaja en la dirección; en el prototipo, que es un solo archivo, se guarda en la pestaña.
+  var CAMPOS = ['licitacion', 'rubro', 'tema'];
+  cada(document.querySelectorAll('a[data-licitacion], a[data-tema]'), function(a){
+    var href = a.getAttribute('href') || '';
+    var datos = {};
+    CAMPOS.forEach(function(c){ var v = a.getAttribute('data-' + c); if (v) datos[c] = v; });
+    if (href.charAt(0) === '#') {
+      a.addEventListener('click', function(){ try { sessionStorage.setItem('pliego-consulta', JSON.stringify(datos)); } catch (err) {} });
+    } else {
+      var partes = [];
+      for (var c in datos) partes.push(c + '=' + encodeURIComponent(datos[c]));
+      a.setAttribute('href', href + '?' + partes.join('&'));
     }
+  });
+
+  var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !quieto) {
+    // Aparición suave de cada bloque al entrar en pantalla. El título de cada página no espera al script.
+    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faqs, .estudio > *, .contacto > *, .cierre .wrap > *');
+    var ver = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(en){
+        if (en.isIntersecting || en.boundingClientRect.top < 0) { en.target.classList.add('visto'); ver.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    cada(bloques, function(el){
+      if (el.querySelector('h1')) return;
+      var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.setProperty('--d', (i % 4) * 0.08 + 's');
+      el.classList.add('rv');
+      ver.observe(el);
+    });
+    document.documentElement.classList.add('anim');
   }
+
   var form = document.getElementById('consulta');
   if (!form) return;
+  // Con el número cargado, el WhatsApp de la lista de datos abre la conversación
+  var viaWa = document.getElementById('via-wa');
+  if (WHATSAPP && viaWa) {
+    var directo = document.createElement('a');
+    directo.href = 'https://wa.me/' + WHATSAPP;
+    directo.rel = 'noopener';
+    directo.textContent = viaWa.textContent;
+    viaWa.textContent = '';
+    viaWa.appendChild(directo);
+  }
+  var pedida = '';
+  var elegir = function(select, valor){
+    cada(select.options, function(o){ if (o.text === valor) select.value = o.value || o.text; });
+  };
+  var cargarPedido = function(){
+    var datos = {};
+    try {
+      var q = new URLSearchParams(window.location.search);
+      CAMPOS.forEach(function(c){ if (q.get(c)) datos[c] = q.get(c); });
+    } catch (err) {}
+    try {
+      var guardado = sessionStorage.getItem('pliego-consulta');
+      if (guardado) {
+        datos = JSON.parse(guardado) || datos;
+        sessionStorage.removeItem('pliego-consulta');
+        pedida = '';
+        document.getElementById('elegida').hidden = true;
+      }
+    } catch (err) {}
+    if (datos.licitacion) {
+      pedida = String(datos.licitacion).slice(0, 200);
+      document.getElementById('elegida-txt').textContent = pedida;
+      document.getElementById('elegida').hidden = false;
+      elegir(document.getElementById('c-tema'), 'Quiero asesoría para una licitación');
+    }
+    if (datos.rubro) elegir(document.getElementById('c-rubro'), datos.rubro);
+    if (datos.tema) elegir(document.getElementById('c-tema'), datos.tema);
+  };
+  cargarPedido();
+  window.addEventListener('hashchange', cargarPedido);
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var v = function(id){ return (document.getElementById(id).value || '').trim(); };
     var lineas = ['Hola, le escribo desde la web del estudio.'];
     if (v('c-nombre')) lineas.push('Nombre: ' + v('c-nombre'));
-    if (v('c-empresa')) lineas.push('Empresa o actividad: ' + v('c-empresa'));
-    if (v('c-tel')) lineas.push('Teléfono: ' + v('c-tel'));
+    if (v('c-empresa')) lineas.push('Empresa: ' + v('c-empresa'));
+    if (v('c-rubro')) lineas.push('Rubro: ' + v('c-rubro'));
     lineas.push('Tema: ' + v('c-tema'));
+    if (pedida) lineas.push('Licitación: ' + pedida);
     if (v('c-msj')) lineas.push('Consulta: ' + v('c-msj'));
     var texto = lineas.join('\n');
     if (WHATSAPP) {
@@ -843,3 +643,5 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   });
 })();
 </script>
+</body>
+</html>
