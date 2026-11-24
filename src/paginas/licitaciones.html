@@ -1,0 +1,52 @@
+<section class="sec pag">
+  <div class="wrap">
+    <div class="sec-head">
+      <!--MIGA-->
+      <h1>Licitaciones abiertas en Corrientes, por rubro</h1>
+      <p>Elija a qué se dedica su empresa y el listado le muestra primero las que más se acercan. Descargarlas es gratis. Si quiere presentarse a una, pida la asesoría desde la misma fila.</p>
+    </div>
+    <div class="filtros" role="group" aria-label="Rubro de su empresa">
+      <button class="chip" type="button" data-rubro="todas" aria-pressed="true">Todas</button>
+      <button class="chip" type="button" data-rubro="obras" aria-pressed="false">Obras</button>
+      <button class="chip" type="button" data-rubro="mantenimiento" aria-pressed="false">Mantenimiento</button>
+      <button class="chip" type="button" data-rubro="tecnologia" aria-pressed="false">Tecnología</button>
+      <button class="chip" type="button" data-rubro="software" aria-pressed="false">Software y soporte</button>
+    </div>
+    <p class="vacio" id="lista-vacia" role="status" hidden><span id="vacia-txt">En este momento no hay llamados abiertos en el listado.</span> Si vio uno en una publicación oficial, puede <a href="@contacto" data-tema="Quiero asesoría para una licitación">consultarme por esa licitación</a>.</p>
+    <div class="tabla tabla--lista">
+      <table class="lista" id="lista">
+        <thead>
+          <tr><th scope="col">Rubro</th><th scope="col">Objeto</th><th scope="col">Organismo</th><th scope="col">Apertura</th><th scope="col">Pliego</th><th scope="col">Asesoría</th></tr>
+        </thead>
+        <tbody>
+          <!--LICITACIONES-->
+        </tbody>
+      </table>
+    </div>
+    <p class="nota" id="nota-lista" aria-live="polite"><!--NOTA-LISTA--></p>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="cobertura">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Cobertura</p>
+      <h2>Organismos y municipios que cubre el listado</h2>
+      <p>El listado reúne los llamados de las jurisdicciones que publican su información en forma oficial. En cada una se indica de dónde se toma.</p>
+    </div>
+    <!--COBERTURA-->
+  </div>
+</section>
+
+<section class="banda cierre">
+  <div class="wrap">
+    <div class="cierre-txt">
+      <h2>¿Encontró una licitación para su empresa?</h2>
+      <p>En la asesoría analizo esa licitación, le digo qué documentación le falta y cuál tiene que mejorar, y diseño la oferta para su empresa.</p>
+    </div>
+    <div class="cta">
+      <a class="btn btn--banda" href="@contacto">Pedir asesoría</a>
+      <a class="btn btn--banda-sec" href="@planes">Ver los planes</a>
+    </div>
+  </div>
+</section>

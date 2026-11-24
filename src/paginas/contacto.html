@@ -1,0 +1,57 @@
+<section class="sec banda pag">
+  <div class="wrap contacto">
+    <div class="sec-head">
+      <!--MIGA-->
+      <h1>Pida su asesoría</h1>
+      <p>Cuénteme a qué se dedica su empresa y a qué licitación quiere presentarse. La consulta me llega por WhatsApp.</p>
+    </div>
+
+    <form id="consulta" novalidate>
+      <p class="elegida" id="elegida" hidden>Consulta por la licitación: <b id="elegida-txt"></b></p>
+      <div class="fila">
+        <label for="c-nombre">Nombre y apellido
+          <input id="c-nombre" name="nombre" autocomplete="name" required>
+        </label>
+        <label for="c-empresa">Empresa
+          <input id="c-empresa" name="empresa" autocomplete="organization">
+        </label>
+      </div>
+      <div class="fila">
+        <label for="c-rubro">Rubro de su empresa
+          <select id="c-rubro" name="rubro">
+            <option value="">Elija un rubro</option>
+            <option>Obras</option>
+            <option>Mantenimiento</option>
+            <option>Tecnología</option>
+            <option>Software y soporte</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label for="c-tema">Tema de la consulta
+          <select id="c-tema" name="tema">
+            <option>Quiero asesoría para una licitación</option>
+            <option>Consulta sobre las licitaciones publicadas</option>
+            <option>Me interesa el seguimiento completo</option>
+            <option>Otro tema</option>
+          </select>
+        </label>
+      </div>
+      <label for="c-msj">Mensaje
+        <textarea id="c-msj" name="mensaje" placeholder="Qué licitación le interesa y cuándo es la apertura, si ya tiene la fecha."></textarea>
+      </label>
+      <button class="btn btn--banda" type="submit">Enviar consulta por WhatsApp</button>
+      <p class="form-nota">Se abre WhatsApp con su consulta ya escrita. Usted la revisa y la envía.</p>
+      <div class="previa" id="previa" hidden aria-live="polite">
+        <span>En el sitio publicado, este botón abre WhatsApp con el mensaje ya escrito. Así llegaría su consulta:</span>
+        <pre id="previa-txt"></pre>
+      </div>
+    </form>
+
+    <dl class="vias">
+      <div><dt>WhatsApp</dt><dd id="via-wa"><span class="completar">+54 379 000-0000</span></dd></div>
+      <div><dt>Correo</dt><dd><span class="completar">contacto@pliegoestudio.com.ar</span></dd></div>
+      <div><dt>Estudio</dt><dd><span class="completar">Calle y número</span>, Corrientes Capital</dd></div>
+      <div><dt>Horario</dt><dd><span class="completar">Lunes a viernes, de 8 a 13 y de 17 a 20</span></dd></div>
+    </dl>
+  </div>
+</section>
