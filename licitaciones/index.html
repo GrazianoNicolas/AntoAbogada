@@ -192,8 +192,12 @@ a{color:inherit}
 .lista tbody th{white-space:normal;min-width:15rem}
 .lista tr.lejos{opacity:.5}
 .lista tr.afin th::after{content:"Se acerca a su empresa";display:inline-block;margin-left:.6rem;vertical-align:middle;white-space:nowrap;font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);border:1px solid var(--acento);padding:.12rem .4rem}
-.bajar{font:600 .92rem/1 var(--texto);min-height:2.75rem;padding:0;border:0;background:none;color:var(--marca);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
+.bajar{display:inline-flex;align-items:center;font:600 .92rem/1.2 var(--texto);min-height:2.75rem;padding:0;border:0;background:none;color:var(--marca);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
 .lista td.acc,.lista .bajar{white-space:nowrap}
+.lista .proc{display:block;margin-bottom:.25rem;font:500 .7rem/1.35 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--tinta-2)}
+.lista .hora{display:block;font-size:.85rem;color:var(--tinta-2);white-space:nowrap}
+.lista .det{display:block;margin-top:.3rem;font:400 .85rem/1.4 var(--texto);color:var(--tinta-2)}
+.vacio{margin:0 0 1.25rem;padding:.85rem 1.1rem;max-width:56rem;border:1px solid var(--linea);border-left:3px solid var(--acento);background:var(--papel-2)}
 @media (max-width:700px){
   .tabla--lista{border:0;overflow:visible}
   .lista{display:block;min-width:0}
@@ -201,14 +205,32 @@ a{color:inherit}
   .lista tbody{display:grid;gap:.9rem}
   .lista tr{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.3rem 1rem;border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1rem 1rem .5rem}
   .lista th,.lista td{display:block;padding:0;border:0}
-  .lista td:nth-child(1),.lista tbody th{grid-column:1/-1}
+  .lista td:nth-child(1),.lista tbody th,.lista td:nth-child(3),.lista td:nth-child(4){grid-column:1/-1}
   .lista tbody th{min-width:0;font-size:1.08rem;line-height:1.3;padding-bottom:.25rem}
-  .lista td:nth-child(4){text-align:right;white-space:nowrap}
+  .lista td:nth-child(3){color:var(--tinta-2)}
+  .lista td:nth-child(4){font-weight:600}
+  .lista td:nth-child(4) .hora{font-size:inherit;color:inherit}
   .lista td:nth-child(4)::before{content:"Abre el "}
   .lista td.acc{text-align:right}
   .lista .bajar{white-space:normal;text-align:left}
+  .lista .hora{display:inline}
 }
 .lista .pedir{display:inline-flex;align-items:center;min-height:2.75rem;font-weight:600;font-size:.92rem;color:var(--acento);text-underline-offset:.2em}
+
+/* Organismos y municipios que cubre el listado */
+.cobs{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+.cob{display:flex;flex-direction:column;gap:.5rem;min-width:0;background:var(--papel);border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1.3rem 1.25rem 1.1rem}
+.cob h3{font-size:1.12rem;line-height:1.3}
+.cob p{color:var(--tinta-2);font-size:.95rem}
+.cob .cob-fte{margin-top:auto;padding-top:.5rem;font-size:.9rem}
+.cob-est{align-self:flex-start;font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--marca);border:1px solid currentColor;padding:.12rem .4rem}
+.cob-est--proximamente,.cob-est--confirmar{color:var(--tinta-2)}
+.munis{margin-top:2.25rem}
+.munis h3{font-size:1.2rem}
+.munis .nota{margin-top:.4rem}
+.munis-lista{list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem}
+.munis-lista li{display:inline-flex;align-items:center;gap:.7rem;background:var(--papel);border:1px solid var(--linea);padding:.55rem .8rem}
+@media (max-width:900px){.cobs{grid-template-columns:1fr}}
 
 /* Planes */
 .planes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;align-items:stretch}
@@ -445,22 +467,38 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
       <button class="chip" type="button" data-rubro="tecnologia" aria-pressed="false">Tecnología</button>
       <button class="chip" type="button" data-rubro="software" aria-pressed="false">Software y soporte</button>
     </div>
+    <p class="vacio" id="lista-vacia" role="status" hidden><span id="vacia-txt">En este momento no hay llamados abiertos en el listado.</span> Si vio uno en una publicación oficial, puede <a href="../contacto/" data-tema="Quiero asesoría para una licitación">consultarme por esa licitación</a>.</p>
     <div class="tabla tabla--lista">
       <table class="lista" id="lista">
         <thead>
           <tr><th scope="col">Rubro</th><th scope="col">Objeto</th><th scope="col">Organismo</th><th scope="col">Apertura</th><th scope="col">Pliego</th><th scope="col">Asesoría</th></tr>
         </thead>
         <tbody>
-          <tr data-rubro="obras"><td class="norma">Obras</td><th scope="row">Refacción y ampliación de un edificio escolar</th><td>Organismo provincial</td><td><span class="completar">12/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="../contacto/" data-licitacion="Refacción y ampliación de un edificio escolar">Quiero presentarme</a></td></tr>
-          <tr data-rubro="software"><td class="norma">Software y soporte</td><th scope="row">Desarrollo de un sistema de gestión de expedientes</th><td>Municipio</td><td><span class="completar">15/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="../contacto/" data-licitacion="Desarrollo de un sistema de gestión de expedientes">Quiero presentarme</a></td></tr>
-          <tr data-rubro="mantenimiento"><td class="norma">Mantenimiento</td><th scope="row">Mantenimiento de ascensores y equipos de climatización</th><td>Organismo provincial</td><td><span class="completar">18/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="../contacto/" data-licitacion="Mantenimiento de ascensores y equipos de climatización">Quiero presentarme</a></td></tr>
-          <tr data-rubro="tecnologia"><td class="norma">Tecnología</td><th scope="row">Adquisición de computadoras y equipamiento de red</th><td>Organismo provincial</td><td><span class="completar">21/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="../contacto/" data-licitacion="Adquisición de computadoras y equipamiento de red">Quiero presentarme</a></td></tr>
-          <tr data-rubro="obras"><td class="norma">Obras</td><th scope="row">Pavimentación de calles urbanas</th><td>Municipio</td><td><span class="completar">22/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="../contacto/" data-licitacion="Pavimentación de calles urbanas">Quiero presentarme</a></td></tr>
-          <tr data-rubro="software"><td class="norma">Software y soporte</td><th scope="row">Soporte y mantenimiento de sistemas informáticos</th><td>Organismo provincial</td><td><span class="completar">28/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="../contacto/" data-licitacion="Soporte y mantenimiento de sistemas informáticos">Quiero presentarme</a></td></tr>
+          <tr data-rubro="tecnologia" data-apertura="2026-12-16T10:00"><td class="norma">Tecnología</td><th scope="row"><span class="proc">Licitación Pública N° 09/26</span>Renovación de equipos de seguridad perimetral (firewall) destinado al Datacenter del Poder Judicial<span class="det">Presupuesto oficial: USD 432.000. Pliego sin costo.</span></th><td>Poder Judicial de Corrientes</td><td><time datetime="2026-12-16T10:00">16/12/2026</time> <span class="hora">10:00 h</span></td><td><a class="bajar" href="https://www.juscorrientes.gov.ar/servicio-administrativo-financiero/servicio-compras/licitaciones-2026/" target="_blank" rel="noopener">Ver publicación oficial</a></td><td class="acc"><a class="pedir" href="../contacto/" data-licitacion="Licitación Pública N° 09/26: Renovación de equipos de seguridad perimetral (firewall) destinado al Datacenter del Poder Judicial">Quiero presentarme</a></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="nota" id="nota-lista" aria-live="polite"><span class="completar">Listado de ejemplo</span>, para mostrar cómo se verá. Las licitaciones reales se toman de las publicaciones oficiales de la Provincia y de los municipios.</p>
+    <p class="nota" id="nota-lista" aria-live="polite">Listado actualizado el 24/11/2026 a partir de las publicaciones oficiales que se detallan más abajo. La fecha de apertura puede prorrogarse: verifique el llamado en la publicación oficial antes de cotizar.</p>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="cobertura">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Cobertura</p>
+      <h2>Organismos y municipios que cubre el listado</h2>
+      <p>El listado reúne los llamados de las jurisdicciones que publican su información en forma oficial. En cada una se indica de dónde se toma.</p>
+    </div>
+    <ul class="cobs">
+      <li class="cob"><span class="cob-est cob-est--habilitado">Habilitado</span><h3>Provincia de Corrientes, Poder Ejecutivo</h3><p>Licitaciones públicas de los ministerios y organismos provinciales que publica la Contaduría General de la Provincia.</p><p class="cob-fte">Fuente: <a href="https://www.cgpcorrientes.gob.ar/licitaciones-component" target="_blank" rel="noopener">Contaduría General de la Provincia</a></p></li>
+      <li class="cob"><span class="cob-est cob-est--habilitado">Habilitado</span><h3>Poder Judicial de Corrientes</h3><p>Licitaciones del Servicio Administrativo Financiero del Poder Judicial.</p><p class="cob-fte">Fuente: <a href="https://www.juscorrientes.gov.ar/servicio-administrativo-financiero/servicio-compras/licitaciones-2026/" target="_blank" rel="noopener">Compras del Poder Judicial</a></p></li>
+      <li class="cob"><span class="cob-est cob-est--habilitado">Habilitado</span><h3>Entes y municipios que publican en el Boletín Oficial</h3><p>Llamados de entes, organismos y municipios que se publican en el Boletín Oficial de la Provincia.</p><p class="norma">Ley 5571 · art. 114</p><p class="cob-fte">Fuente: <a href="https://www.corrientes.gob.ar/boletinoficial" target="_blank" rel="noopener">Boletín Oficial de Corrientes</a></p></li>
+    </ul>
+    <div class="munis">
+      <h3>Municipios</h3>
+      <p class="nota"><span class="completar">Lista de ejemplo</span>, para mostrar cómo se verá. Se incorporan los municipios que publican sus llamados en forma oficial.</p>
+      <ul class="munis-lista"><li><span class="completar">Corrientes (Capital)</span> <span class="cob-est cob-est--confirmar">A confirmar</span></li><li><span class="completar">Goya</span> <span class="cob-est cob-est--confirmar">A confirmar</span></li><li><span class="completar">Paso de los Libres</span> <span class="cob-est cob-est--confirmar">A confirmar</span></li></ul>
+    </div>
   </div>
 </section>
 
@@ -546,6 +584,28 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   if (lista) {
     var cuerpo = lista.tBodies[0];
     var filas = Array.prototype.slice.call(cuerpo.rows);
+    // Un llamado deja de mostrarse al día siguiente de su apertura, aunque el listado no se haya vuelto a armar
+    if (!lista.hasAttribute('data-ejemplo')) {
+      var d = new Date();
+      var hoy = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+      filas = filas.filter(function(f){
+        var abre = (f.getAttribute('data-apertura') || '').slice(0, 10);
+        if (abre && abre < hoy) { cuerpo.removeChild(f); return false; }
+        return true;
+      });
+    }
+    // Aviso cuando no queda ningún llamado abierto, en total o del rubro elegido
+    var vacia = document.getElementById('lista-vacia');
+    var avisar = function(rubro){
+      if (!vacia) return;
+      var hay = filas.some(function(f){ return rubro === 'todas' || f.getAttribute('data-rubro') === rubro; });
+      lista.parentNode.hidden = !filas.length;
+      vacia.hidden = hay;
+      if (!hay) document.getElementById('vacia-txt').textContent = filas.length && RUBROS[rubro]
+        ? 'En este momento no hay llamados abiertos del rubro ' + RUBROS[rubro] + ' en el listado.'
+        : 'En este momento no hay llamados abiertos en el listado.';
+    };
+    avisar('todas');
     // En celular las filas se muestran como tarjetas; estos roles mantienen la lectura como tabla
     lista.setAttribute('role', 'table');
     cada(lista.querySelectorAll('thead, tbody'), function(g){ g.setAttribute('role', 'rowgroup'); });
@@ -571,6 +631,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
           (afin ? cerca : resto).push(f);
         });
         cerca.concat(resto).forEach(function(f){ cuerpo.appendChild(f); });
+        avisar(rubro);
       });
     });
     // Si se llega desde un rubro del inicio, el listado abre con ese rubro elegido
@@ -587,7 +648,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
     window.addEventListener('hashchange', filtrar);
     var nota = document.getElementById('nota-lista');
     lista.addEventListener('click', function(e){
-      if (nota && e.target.closest('.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
+      if (nota && e.target.closest('button.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
     });
   }
 
@@ -620,7 +681,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && !quieto) {
     // Aparición suave de cada bloque al entrar en pantalla. El título de cada página no espera al script.
-    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faq-grupo, .estudio > *, .contacto > *, .cierre .wrap > *');
+    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .cob, .munis, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faq-grupo, .estudio > *, .contacto > *, .cierre .wrap > *');
     var ver = new IntersectionObserver(function(entradas){
       entradas.forEach(function(en){
         if (en.isIntersecting || en.boundingClientRect.top < 0) { en.target.classList.add('visto'); ver.unobserve(en.target); }

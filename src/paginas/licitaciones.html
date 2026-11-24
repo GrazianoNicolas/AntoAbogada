@@ -12,22 +12,29 @@
       <button class="chip" type="button" data-rubro="tecnologia" aria-pressed="false">Tecnología</button>
       <button class="chip" type="button" data-rubro="software" aria-pressed="false">Software y soporte</button>
     </div>
+    <p class="vacio" id="lista-vacia" role="status" hidden><span id="vacia-txt">En este momento no hay llamados abiertos en el listado.</span> Si vio uno en una publicación oficial, puede <a href="@contacto" data-tema="Quiero asesoría para una licitación">consultarme por esa licitación</a>.</p>
     <div class="tabla tabla--lista">
       <table class="lista" id="lista">
         <thead>
           <tr><th scope="col">Rubro</th><th scope="col">Objeto</th><th scope="col">Organismo</th><th scope="col">Apertura</th><th scope="col">Pliego</th><th scope="col">Asesoría</th></tr>
         </thead>
         <tbody>
-          <tr data-rubro="obras"><td class="norma">Obras</td><th scope="row">Refacción y ampliación de un edificio escolar</th><td>Organismo provincial</td><td><span class="completar">12/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="@contacto" data-licitacion="Refacción y ampliación de un edificio escolar">Quiero presentarme</a></td></tr>
-          <tr data-rubro="software"><td class="norma">Software y soporte</td><th scope="row">Desarrollo de un sistema de gestión de expedientes</th><td>Municipio</td><td><span class="completar">15/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="@contacto" data-licitacion="Desarrollo de un sistema de gestión de expedientes">Quiero presentarme</a></td></tr>
-          <tr data-rubro="mantenimiento"><td class="norma">Mantenimiento</td><th scope="row">Mantenimiento de ascensores y equipos de climatización</th><td>Organismo provincial</td><td><span class="completar">18/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="@contacto" data-licitacion="Mantenimiento de ascensores y equipos de climatización">Quiero presentarme</a></td></tr>
-          <tr data-rubro="tecnologia"><td class="norma">Tecnología</td><th scope="row">Adquisición de computadoras y equipamiento de red</th><td>Organismo provincial</td><td><span class="completar">21/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="@contacto" data-licitacion="Adquisición de computadoras y equipamiento de red">Quiero presentarme</a></td></tr>
-          <tr data-rubro="obras"><td class="norma">Obras</td><th scope="row">Pavimentación de calles urbanas</th><td>Municipio</td><td><span class="completar">22/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="@contacto" data-licitacion="Pavimentación de calles urbanas">Quiero presentarme</a></td></tr>
-          <tr data-rubro="software"><td class="norma">Software y soporte</td><th scope="row">Soporte y mantenimiento de sistemas informáticos</th><td>Organismo provincial</td><td><span class="completar">28/12/2026</span></td><td><button class="bajar" type="button">Descargar pliego</button></td><td class="acc"><a class="pedir" href="@contacto" data-licitacion="Soporte y mantenimiento de sistemas informáticos">Quiero presentarme</a></td></tr>
+          <!--LICITACIONES-->
         </tbody>
       </table>
     </div>
-    <p class="nota" id="nota-lista" aria-live="polite"><span class="completar">Listado de ejemplo</span>, para mostrar cómo se verá. Las licitaciones reales se toman de las publicaciones oficiales de la Provincia y de los municipios.</p>
+    <p class="nota" id="nota-lista" aria-live="polite"><!--NOTA-LISTA--></p>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="cobertura">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Cobertura</p>
+      <h2>Organismos y municipios que cubre el listado</h2>
+      <p>El listado reúne los llamados de las jurisdicciones que publican su información en forma oficial. En cada una se indica de dónde se toma.</p>
+    </div>
+    <!--COBERTURA-->
   </div>
 </section>
 

@@ -33,6 +33,28 @@
   if (lista) {
     var cuerpo = lista.tBodies[0];
     var filas = Array.prototype.slice.call(cuerpo.rows);
+    // Un llamado deja de mostrarse al día siguiente de su apertura, aunque el listado no se haya vuelto a armar
+    if (!lista.hasAttribute('data-ejemplo')) {
+      var d = new Date();
+      var hoy = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+      filas = filas.filter(function(f){
+        var abre = (f.getAttribute('data-apertura') || '').slice(0, 10);
+        if (abre && abre < hoy) { cuerpo.removeChild(f); return false; }
+        return true;
+      });
+    }
+    // Aviso cuando no queda ningún llamado abierto, en total o del rubro elegido
+    var vacia = document.getElementById('lista-vacia');
+    var avisar = function(rubro){
+      if (!vacia) return;
+      var hay = filas.some(function(f){ return rubro === 'todas' || f.getAttribute('data-rubro') === rubro; });
+      lista.parentNode.hidden = !filas.length;
+      vacia.hidden = hay;
+      if (!hay) document.getElementById('vacia-txt').textContent = filas.length && RUBROS[rubro]
+        ? 'En este momento no hay llamados abiertos del rubro ' + RUBROS[rubro] + ' en el listado.'
+        : 'En este momento no hay llamados abiertos en el listado.';
+    };
+    avisar('todas');
     // En celular las filas se muestran como tarjetas; estos roles mantienen la lectura como tabla
     lista.setAttribute('role', 'table');
     cada(lista.querySelectorAll('thead, tbody'), function(g){ g.setAttribute('role', 'rowgroup'); });
@@ -58,6 +80,7 @@
           (afin ? cerca : resto).push(f);
         });
         cerca.concat(resto).forEach(function(f){ cuerpo.appendChild(f); });
+        avisar(rubro);
       });
     });
     // Si se llega desde un rubro del inicio, el listado abre con ese rubro elegido
@@ -74,7 +97,7 @@
     window.addEventListener('hashchange', filtrar);
     var nota = document.getElementById('nota-lista');
     lista.addEventListener('click', function(e){
-      if (nota && e.target.closest('.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
+      if (nota && e.target.closest('button.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
     });
   }
 
@@ -107,7 +130,7 @@
   var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && !quieto) {
     // Aparición suave de cada bloque al entrar en pantalla. El título de cada página no espera al script.
-    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faq-grupo, .estudio > *, .contacto > *, .cierre .wrap > *');
+    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .cob, .munis, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faq-grupo, .estudio > *, .contacto > *, .cierre .wrap > *');
     var ver = new IntersectionObserver(function(entradas){
       entradas.forEach(function(en){
         if (en.isIntersecting || en.boundingClientRect.top < 0) { en.target.classList.add('visto'); ver.unobserve(en.target); }

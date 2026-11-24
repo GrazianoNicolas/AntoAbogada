@@ -71,6 +71,10 @@ JS = leer('sitio.js')
 CABECERA = leer('partes', 'cabecera.html')
 PIE = leer('partes', 'pie.html')
 CLAVES = {p['slug'] or 'inicio' for p in PAGINAS}
+# Los llamados del listado se cargan en src/licitaciones.json. El rubro de cada uno es una de estas cuatro claves.
+RUBROS = {'obras': 'Obras', 'mantenimiento': 'Mantenimiento', 'tecnologia': 'Tecnología', 'software': 'Software y soporte'}
+LISTADO = json.loads(leer('licitaciones.json'))
+ESTADOS = {'habilitado': 'Habilitado', 'proximamente': 'Próximamente', 'confirmar': 'A confirmar'}
 e = html.escape
 limpio = lambda s: html.unescape(re.sub(r'<[^>]+>', '', s)).strip()
 url = lambda p: DOMINIO + (p['slug'] + '/' if p['slug'] else '')
@@ -94,8 +98,91 @@ def miga(p):
             f'<li aria-current="page">{e(p["nombre"])}</li></ol></nav>')
 
 
+def cuando(iso):
+    """'2026-12-12' o '2026-12-12T10:00' pasa a la fecha como se lee en un llamado, con la hora si está."""
+    d = datetime.datetime.fromisoformat(iso)
+    marca = f'<time datetime="{iso}">{d.strftime("%d/%m/%Y")}</time>'
+    return marca + (f' <span class="hora">{d.strftime("%H:%M")} h</span>' if 'T' in iso else '')
+
+
+def listado():
+    """Filas del listado a partir de src/licitaciones.json, de la apertura más próxima a la más lejana.
+
+    Devuelve las filas, la nota al pie y si los llamados son de ejemplo."""
+    ejemplo = bool(LISTADO.get('ejemplo'))
+    filas = []
+    for l in sorted(LISTADO['licitaciones'], key=lambda l: l['apertura']):
+        assert l['rubro'] in RUBROS, ('rubro desconocido', l['rubro'])
+        assert l['objeto'].strip() and l['organismo'].strip(), ('falta objeto u organismo', l)
+        for campo in ('pliego', 'fuente'):
+            assert not l.get(campo) or re.match(r'https?://', l[campo]), ('enlace inválido', l[campo])
+        proc = (l.get('procedimiento') or '').strip()
+        fecha = cuando(l['apertura'])
+        if ejemplo:
+            fecha = f'<span class="completar">{fecha}</span>'
+        if l.get('pliego'):
+            bajar = f'<a class="bajar" href="{e(l["pliego"])}" target="_blank" rel="noopener">Descargar pliego</a>'
+        elif l.get('fuente'):
+            bajar = f'<a class="bajar" href="{e(l["fuente"])}" target="_blank" rel="noopener">Ver publicación oficial</a>'
+        else:
+            bajar = '<button class="bajar" type="button">Descargar pliego</button>'
+        objeto = l['objeto'].strip()
+        pedido = (proc + ': ' if proc else '') + objeto
+        det = (l.get('detalle') or '').strip()
+        titulo = (('<span class="proc">' + e(proc) + '</span>' if proc else '') + e(objeto)
+                  + ('<span class="det">' + e(det) + '</span>' if det else ''))
+        filas.append(
+            f'<tr data-rubro="{l["rubro"]}" data-apertura="{l["apertura"]}"><td class="norma">{RUBROS[l["rubro"]]}</td>'
+            f'<th scope="row">{titulo}</th><td>{e(l["organismo"].strip())}</td><td>{fecha}</td><td>{bajar}</td>'
+            f'<td class="acc"><a class="pedir" href="@contacto" data-licitacion="{e(pedido)}">Quiero presentarme</a></td></tr>')
+    if ejemplo:
+        nota = ('<span class="completar">Listado de ejemplo</span>, para mostrar cómo se verá. Las licitaciones reales se toman '
+                'de las publicaciones oficiales de la Provincia y de los municipios.')
+    else:
+        al = datetime.date.fromisoformat(LISTADO['actualizado']).strftime('%d/%m/%Y')
+        nota = (f'Listado actualizado el {al} a partir de las publicaciones oficiales que se detallan más abajo. '
+                'La fecha de apertura puede prorrogarse: verifique el llamado en la publicación oficial antes de cotizar.')
+    return '\n          '.join(filas), nota, ejemplo
+
+
+def cobertura():
+    """Organismos y municipios que cubre el listado, con la fuente de cada uno. Sale de src/licitaciones.json."""
+    c = LISTADO['cobertura']
+    sello = lambda estado: f'<span class="cob-est cob-est--{estado}">{ESTADOS[estado]}</span>'
+    fichas = []
+    for f in c['fuentes']:
+        assert f['estado'] in ESTADOS and re.match(r'https?://', f['enlace']), ('fuente mal cargada', f)
+        norma = f'<p class="norma">{e(f["norma"])}</p>' if f.get('norma') else ''
+        fichas.append(
+            f'<li class="cob">{sello(f["estado"])}<h3>{e(f["nombre"])}</h3><p>{e(f["detalle"])}</p>{norma}'
+            f'<p class="cob-fte">Fuente: <a href="{e(f["enlace"])}" target="_blank" rel="noopener">{e(f["fuente"])}</a></p></li>')
+    munis = []
+    for m in c['municipios']:
+        assert m['estado'] in ESTADOS, ('estado desconocido', m)
+        nombre = e(m['nombre'])
+        if m['estado'] == 'confirmar':
+            nombre = f'<span class="completar">{nombre}</span>'
+        munis.append(f'<li>{nombre} {sello(m["estado"])}</li>')
+    provisoria = any(m['estado'] == 'confirmar' for m in c['municipios'])
+    nota = (('<span class="completar">Lista de ejemplo</span>, para mostrar cómo se verá. ' if provisoria else '')
+            + 'Se incorporan los municipios que publican sus llamados en forma oficial.')
+    sep = '\n      '
+    return (f'<ul class="cobs">{sep}{sep.join(fichas)}\n    </ul>\n'
+            f'    <div class="munis">\n      <h3>Municipios</h3>\n      <p class="nota">{nota}</p>\n'
+            f'      <ul class="munis-lista">{"".join(munis)}</ul>\n    </div>')
+
+
 def contenido(p):
-    return leer('paginas', p['archivo'] + '.html').replace('<!--MIGA-->', miga(p)).strip()
+    cuerpo = leer('paginas', p['archivo'] + '.html').replace('<!--MIGA-->', miga(p)).strip()
+    if p['archivo'] == 'licitaciones':
+        filas, nota, ejemplo = listado()
+        for marca in ('<!--LICITACIONES-->', '<!--NOTA-LISTA-->', '<!--COBERTURA-->', 'id="lista">'):
+            assert marca in cuerpo, ('falta en licitaciones.html', marca)
+        cuerpo = (cuerpo.replace('<!--LICITACIONES-->', filas).replace('<!--NOTA-LISTA-->', nota)
+                  .replace('<!--COBERTURA-->', cobertura()))
+        if ejemplo:
+            cuerpo = cuerpo.replace('id="lista">', 'id="lista" data-ejemplo>')
+    return cuerpo
 
 
 def cabecera(p):

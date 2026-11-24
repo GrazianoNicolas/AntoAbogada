@@ -192,8 +192,12 @@ a{color:inherit}
 .lista tbody th{white-space:normal;min-width:15rem}
 .lista tr.lejos{opacity:.5}
 .lista tr.afin th::after{content:"Se acerca a su empresa";display:inline-block;margin-left:.6rem;vertical-align:middle;white-space:nowrap;font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);border:1px solid var(--acento);padding:.12rem .4rem}
-.bajar{font:600 .92rem/1 var(--texto);min-height:2.75rem;padding:0;border:0;background:none;color:var(--marca);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
+.bajar{display:inline-flex;align-items:center;font:600 .92rem/1.2 var(--texto);min-height:2.75rem;padding:0;border:0;background:none;color:var(--marca);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
 .lista td.acc,.lista .bajar{white-space:nowrap}
+.lista .proc{display:block;margin-bottom:.25rem;font:500 .7rem/1.35 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--tinta-2)}
+.lista .hora{display:block;font-size:.85rem;color:var(--tinta-2);white-space:nowrap}
+.lista .det{display:block;margin-top:.3rem;font:400 .85rem/1.4 var(--texto);color:var(--tinta-2)}
+.vacio{margin:0 0 1.25rem;padding:.85rem 1.1rem;max-width:56rem;border:1px solid var(--linea);border-left:3px solid var(--acento);background:var(--papel-2)}
 @media (max-width:700px){
   .tabla--lista{border:0;overflow:visible}
   .lista{display:block;min-width:0}
@@ -201,14 +205,32 @@ a{color:inherit}
   .lista tbody{display:grid;gap:.9rem}
   .lista tr{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.3rem 1rem;border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1rem 1rem .5rem}
   .lista th,.lista td{display:block;padding:0;border:0}
-  .lista td:nth-child(1),.lista tbody th{grid-column:1/-1}
+  .lista td:nth-child(1),.lista tbody th,.lista td:nth-child(3),.lista td:nth-child(4){grid-column:1/-1}
   .lista tbody th{min-width:0;font-size:1.08rem;line-height:1.3;padding-bottom:.25rem}
-  .lista td:nth-child(4){text-align:right;white-space:nowrap}
+  .lista td:nth-child(3){color:var(--tinta-2)}
+  .lista td:nth-child(4){font-weight:600}
+  .lista td:nth-child(4) .hora{font-size:inherit;color:inherit}
   .lista td:nth-child(4)::before{content:"Abre el "}
   .lista td.acc{text-align:right}
   .lista .bajar{white-space:normal;text-align:left}
+  .lista .hora{display:inline}
 }
 .lista .pedir{display:inline-flex;align-items:center;min-height:2.75rem;font-weight:600;font-size:.92rem;color:var(--acento);text-underline-offset:.2em}
+
+/* Organismos y municipios que cubre el listado */
+.cobs{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+.cob{display:flex;flex-direction:column;gap:.5rem;min-width:0;background:var(--papel);border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1.3rem 1.25rem 1.1rem}
+.cob h3{font-size:1.12rem;line-height:1.3}
+.cob p{color:var(--tinta-2);font-size:.95rem}
+.cob .cob-fte{margin-top:auto;padding-top:.5rem;font-size:.9rem}
+.cob-est{align-self:flex-start;font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--marca);border:1px solid currentColor;padding:.12rem .4rem}
+.cob-est--proximamente,.cob-est--confirmar{color:var(--tinta-2)}
+.munis{margin-top:2.25rem}
+.munis h3{font-size:1.2rem}
+.munis .nota{margin-top:.4rem}
+.munis-lista{list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem}
+.munis-lista li{display:inline-flex;align-items:center;gap:.7rem;background:var(--papel);border:1px solid var(--linea);padding:.55rem .8rem}
+@media (max-width:900px){.cobs{grid-template-columns:1fr}}
 
 /* Planes */
 .planes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;align-items:stretch}
@@ -600,6 +622,28 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   if (lista) {
     var cuerpo = lista.tBodies[0];
     var filas = Array.prototype.slice.call(cuerpo.rows);
+    // Un llamado deja de mostrarse al día siguiente de su apertura, aunque el listado no se haya vuelto a armar
+    if (!lista.hasAttribute('data-ejemplo')) {
+      var d = new Date();
+      var hoy = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+      filas = filas.filter(function(f){
+        var abre = (f.getAttribute('data-apertura') || '').slice(0, 10);
+        if (abre && abre < hoy) { cuerpo.removeChild(f); return false; }
+        return true;
+      });
+    }
+    // Aviso cuando no queda ningún llamado abierto, en total o del rubro elegido
+    var vacia = document.getElementById('lista-vacia');
+    var avisar = function(rubro){
+      if (!vacia) return;
+      var hay = filas.some(function(f){ return rubro === 'todas' || f.getAttribute('data-rubro') === rubro; });
+      lista.parentNode.hidden = !filas.length;
+      vacia.hidden = hay;
+      if (!hay) document.getElementById('vacia-txt').textContent = filas.length && RUBROS[rubro]
+        ? 'En este momento no hay llamados abiertos del rubro ' + RUBROS[rubro] + ' en el listado.'
+        : 'En este momento no hay llamados abiertos en el listado.';
+    };
+    avisar('todas');
     // En celular las filas se muestran como tarjetas; estos roles mantienen la lectura como tabla
     lista.setAttribute('role', 'table');
     cada(lista.querySelectorAll('thead, tbody'), function(g){ g.setAttribute('role', 'rowgroup'); });
@@ -625,6 +669,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
           (afin ? cerca : resto).push(f);
         });
         cerca.concat(resto).forEach(function(f){ cuerpo.appendChild(f); });
+        avisar(rubro);
       });
     });
     // Si se llega desde un rubro del inicio, el listado abre con ese rubro elegido
@@ -641,7 +686,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
     window.addEventListener('hashchange', filtrar);
     var nota = document.getElementById('nota-lista');
     lista.addEventListener('click', function(e){
-      if (nota && e.target.closest('.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
+      if (nota && e.target.closest('button.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
     });
   }
 
@@ -674,7 +719,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && !quieto) {
     // Aparición suave de cada bloque al entrar en pantalla. El título de cada página no espera al script.
-    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faq-grupo, .estudio > *, .contacto > *, .cierre .wrap > *');
+    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .cob, .munis, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faq-grupo, .estudio > *, .contacto > *, .cierre .wrap > *');
     var ver = new IntersectionObserver(function(entradas){
       entradas.forEach(function(en){
         if (en.isIntersecting || en.boundingClientRect.top < 0) { en.target.classList.add('visto'); ver.unobserve(en.target); }

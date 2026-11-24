@@ -28,6 +28,7 @@ Cada página es corta a propósito, para que en el celular no haya que desplazar
 | `marca/` | Logo en PNG e isotipo en SVG y PNG. |
 | `og-image.png`, `favicon.svg` | Imagen para compartir en redes e ícono de la pestaña. |
 | `src/paginas/` | El contenido de cada página. **Acá se editan los textos.** |
+| `src/licitaciones.json` | Los llamados del listado. **Acá se cargan las licitaciones.** |
 | `src/partes/` | Encabezado con el menú y pie, compartidos por todas las páginas. |
 | `src/estilos.css`, `src/sitio.js` | Estilos y script compartidos. |
 | `src/build.py` | Arma las páginas con sus etiquetas de SEO y sus datos estructurados. |
@@ -63,8 +64,45 @@ En las páginas están marcados con `class="completar"`:
 3. Número de WhatsApp del formulario: al principio de `src/sitio.js`, `var WHATSAPP = ''`. Va en formato internacional sin signos, por ejemplo `5493794000000`. Mientras esté vacío, el formulario sólo muestra cómo quedaría el mensaje.
 4. Foto de la abogada, en lugar del recuadro punteado.
 5. Precio del plan Asesoría (`src/paginas/planes.html`) y, si se va a cobrar en línea, el enlace de pago o de reserva al que lleva el botón "Pedir asesoría".
-6. Licitaciones reales: las filas de la tabla `id="lista"` en `src/paginas/licitaciones.html` son de ejemplo. Cada fila lleva `data-rubro` con `obras`, `mantenimiento`, `tecnologia` o `software`, el botón "Descargar pliego" tiene que pasar a ser un enlace al pliego oficial, y el enlace "Quiero presentarme" lleva en `data-licitacion` el objeto de esa licitación.
-7. Dominio: en `src/build.py` figura `https://www.pliegoestudio.com.ar/` como provisorio. Hay que reemplazarlo por la dirección real del sitio antes de publicarlo, porque se usa en las URL canónicas, el `robots.txt` y el `sitemap.xml`.
+6. Licitaciones: `src/licitaciones.json` ya tiene llamados reales, tomados de las publicaciones oficiales el 24/11/2026. Hay que volver a cargarlo cada vez que se publiquen llamados nuevos. Cómo hacerlo está más abajo, en "Cargar las licitaciones".
+7. Municipios que cubre el listado: los tres de `src/licitaciones.json` son de ejemplo y figuran como "A confirmar". Hay que reemplazarlos por los que indique la abogada.
+8. Dominio: en `src/build.py` figura `https://www.pliegoestudio.com.ar/` como provisorio. Hay que reemplazarlo por la dirección real del sitio antes de publicarlo, porque se usa en las URL canónicas, el `robots.txt` y el `sitemap.xml`.
+
+## Cargar las licitaciones
+
+El listado de `/licitaciones/` se arma con `src/licitaciones.json`. Cada llamado es un bloque con estos datos:
+
+| Dato | Qué va |
+| --- | --- |
+| `rubro` | `obras`, `mantenimiento`, `tecnologia` o `software`. |
+| `objeto` | El objeto del llamado, como figura en la publicación. |
+| `organismo` | El organismo o municipio que llama. |
+| `procedimiento` | Tipo y número, por ejemplo `Licitación Pública N° 14/2026`. Puede quedar vacío. |
+| `detalle` | Una línea con el presupuesto oficial y el valor del pliego, si se conocen. Puede quedar vacío. |
+| `apertura` | Fecha de apertura como `2026-12-03`, o con hora como `2026-12-03T10:00`. |
+| `pliego` | Enlace al pliego oficial. Con este dato la fila muestra "Descargar pliego". |
+| `fuente` | Enlace a la publicación oficial. Si no hay enlace al pliego, la fila muestra "Ver publicación oficial". |
+
+Arriba del archivo, `"ejemplo"` tiene que pasar a `false` cuando los llamados sean reales y `"actualizado"` lleva la fecha de la última carga, que se muestra al pie del listado. Después hay que regenerar el sitio.
+
+El orden lo pone el sitio, de la apertura más próxima a la más lejana. Con llamados reales, cada uno deja de mostrarse al día siguiente de su apertura aunque nadie actualice el archivo, y si no queda ninguno abierto, en total o en un rubro, el listado lo avisa.
+
+### De dónde se toman los llamados
+
+- Contaduría General de la Provincia: <https://www.cgpcorrientes.gob.ar/licitaciones-component>. Publica las licitaciones públicas del Poder Ejecutivo. La fecha de apertura, el presupuesto oficial y el valor del pliego están en el PDF del llamado.
+- Boletín Oficial de la Provincia: <https://www.corrientes.gob.ar/boletinoficial>. Cada edición trae una sección "Licitaciones" con los llamados del Poder Judicial, de entes y de municipios.
+- Poder Judicial: <https://www.juscorrientes.gov.ar/servicio-administrativo-financiero/servicio-compras/licitaciones-2026/>.
+
+Sólo se cargan los llamados que todavía no abrieron y que entran en los cuatro rubros del estudio.
+
+### Organismos y municipios que cubre el listado
+
+La sección "Cobertura" de la misma página sale del bloque `"cobertura"` del archivo:
+
+- `fuentes`: cada organismo con `nombre`, `detalle`, `fuente` (el nombre de la publicación), `enlace`, `estado` y, si corresponde, `norma`.
+- `municipios`: cada municipio con `nombre` y `estado`.
+
+`estado` puede ser `habilitado`, `proximamente` o `confirmar`. Mientras algún municipio esté en `confirmar`, la lista se muestra marcada como ejemplo.
 
 ## Camino hasta la consulta
 

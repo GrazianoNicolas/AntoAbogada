@@ -1,0 +1,47 @@
+{
+  "ejemplo": false,
+  "actualizado": "2026-11-24",
+  "licitaciones": [
+    {
+      "rubro": "tecnologia",
+      "objeto": "Renovación de equipos de seguridad perimetral (firewall) destinado al Datacenter del Poder Judicial",
+      "organismo": "Poder Judicial de Corrientes",
+      "procedimiento": "Licitación Pública N° 09/26",
+      "detalle": "Presupuesto oficial: USD 432.000. Pliego sin costo.",
+      "apertura": "2026-12-16T10:00",
+      "pliego": "",
+      "fuente": "https://www.juscorrientes.gov.ar/servicio-administrativo-financiero/servicio-compras/licitaciones-2026/"
+    }
+  ],
+  "cobertura": {
+    "fuentes": [
+      {
+        "nombre": "Provincia de Corrientes, Poder Ejecutivo",
+        "detalle": "Licitaciones públicas de los ministerios y organismos provinciales que publica la Contaduría General de la Provincia.",
+        "fuente": "Contaduría General de la Provincia",
+        "enlace": "https://www.cgpcorrientes.gob.ar/licitaciones-component",
+        "estado": "habilitado"
+      },
+      {
+        "nombre": "Poder Judicial de Corrientes",
+        "detalle": "Licitaciones del Servicio Administrativo Financiero del Poder Judicial.",
+        "fuente": "Compras del Poder Judicial",
+        "enlace": "https://www.juscorrientes.gov.ar/servicio-administrativo-financiero/servicio-compras/licitaciones-2026/",
+        "estado": "habilitado"
+      },
+      {
+        "nombre": "Entes y municipios que publican en el Boletín Oficial",
+        "detalle": "Llamados de entes, organismos y municipios que se publican en el Boletín Oficial de la Provincia.",
+        "norma": "Ley 5571 · art. 114",
+        "fuente": "Boletín Oficial de Corrientes",
+        "enlace": "https://www.corrientes.gob.ar/boletinoficial",
+        "estado": "habilitado"
+      }
+    ],
+    "municipios": [
+      { "nombre": "Corrientes (Capital)", "estado": "confirmar" },
+      { "nombre": "Goya", "estado": "confirmar" },
+      { "nombre": "Paso de los Libres", "estado": "confirmar" }
+    ]
+  }
+}
