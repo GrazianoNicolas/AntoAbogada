@@ -166,7 +166,7 @@ a{color:inherit}
 .lista tr.lejos{opacity:.5}
 .lista tr.afin th::after{content:"Se acerca a su empresa";display:inline-block;margin-left:.6rem;vertical-align:middle;white-space:nowrap;font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);border:1px solid var(--acento);padding:.12rem .4rem}
 .bajar{font:600 .92rem/1 var(--texto);min-height:2.75rem;padding:0;border:0;background:none;color:var(--marca);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
-.lista td.acc{white-space:nowrap}
+.lista td.acc,.lista .bajar{white-space:nowrap}
 @media (max-width:700px){
   .tabla--lista{border:0;overflow:visible}
   .lista{display:block;min-width:0}
@@ -179,6 +179,7 @@ a{color:inherit}
   .lista td:nth-child(4){text-align:right;white-space:nowrap}
   .lista td:nth-child(4)::before{content:"Abre el "}
   .lista td.acc{text-align:right}
+  .lista .bajar{white-space:normal;text-align:left}
 }
 .lista .pedir{display:inline-flex;align-items:center;min-height:2.75rem;font-weight:600;font-size:.92rem;color:var(--acento);text-underline-offset:.2em}
 

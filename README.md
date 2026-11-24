@@ -63,7 +63,7 @@ En las páginas están marcados con `class="completar"`:
 3. Número de WhatsApp del formulario: al principio de `src/sitio.js`, `var WHATSAPP = ''`. Va en formato internacional sin signos, por ejemplo `5493794000000`. Mientras esté vacío, el formulario sólo muestra cómo quedaría el mensaje.
 4. Foto de la abogada, en lugar del recuadro punteado.
 5. Precio del plan Asesoría (`src/paginas/planes.html`) y, si se va a cobrar en línea, el enlace de pago o de reserva al que lleva el botón "Pedir asesoría".
-6. Licitaciones reales: las filas de la tabla `id="lista"` en `src/paginas/licitaciones.html` son de ejemplo. Cada fila lleva `data-rubro` con `obras`, `mantenimiento`, `tecnologia` o `software`, el botón "Descargar" tiene que pasar a ser un enlace al pliego oficial, y el enlace "Quiero presentarme" lleva en `data-licitacion` el objeto de esa licitación.
+6. Licitaciones reales: las filas de la tabla `id="lista"` en `src/paginas/licitaciones.html` son de ejemplo. Cada fila lleva `data-rubro` con `obras`, `mantenimiento`, `tecnologia` o `software`, el botón "Descargar pliego" tiene que pasar a ser un enlace al pliego oficial, y el enlace "Quiero presentarme" lleva en `data-licitacion` el objeto de esa licitación.
 7. Dominio: en `src/build.py` figura `https://www.pliegoestudio.com.ar/` como provisorio. Hay que reemplazarlo por la dirección real del sitio antes de publicarlo, porque se usa en las URL canónicas, el `robots.txt` y el `sitemap.xml`.
 
 ## Camino hasta la consulta
