@@ -259,14 +259,20 @@ td.norma{white-space:nowrap}
 .fuentes a{color:var(--marca)}
 
 /* Preguntas */
+/* Cada tema lleva su rótulo a la izquierda y sus preguntas a la derecha; en celular el rótulo queda arriba */
+.faq-grupo{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:0 2rem;max-width:63rem}
+.faq-grupo + .faq-grupo{margin-top:2.75rem}
+.faq-tit{font-family:var(--mono);font-weight:500;font-size:.76rem;line-height:1.5;letter-spacing:.09em;text-transform:uppercase;color:var(--acento);border-top:1px solid var(--linea);padding-top:1.3rem}
+@media (max-width:760px){.faq-grupo{grid-template-columns:minmax(0,1fr)}.faq-grupo + .faq-grupo{margin-top:2.25rem}.faq-tit{border-top:0;padding:0 0 .7rem}}
 .faqs{max-width:50rem;border-bottom:1px solid var(--linea)}
 .faq{border-top:1px solid var(--linea)}
 .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding-block:1.1rem}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary h2{font-size:1.1rem;line-height:1.3}
+.faq summary h3{font-size:1.1rem;line-height:1.3}
 .faq summary::after{content:"+";font-family:var(--mono);font-size:1.2rem;color:var(--acento);flex:none}
 .faq[open] summary::after{content:"−"}
 .faq p{padding-bottom:1.3rem;color:var(--tinta-2);max-width:44rem}
+.faq p + .norma{margin-top:-.75rem;color:var(--marca)}
 
 /* Estudio */
 .estudio{display:grid;grid-template-columns:minmax(0,18rem) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
@@ -328,8 +334,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .nav .lnk.activo{color:var(--tinta)}
 .logo svg{transition:transform .25s ease}
 .logo:hover svg{transform:rotate(-6deg)}
-.plan h2,.clientes h3,.faq summary h2{transition:color .2s ease}
-.plan:hover h2,.clientes article:hover h3,.faq summary:hover h2{color:var(--marca)}
+.plan h2,.clientes h3,.faq summary h3{transition:color .2s ease}
+.plan:hover h2,.clientes article:hover h3,.faq summary:hover h3{color:var(--marca)}
 .chip{transition:background-color .2s ease,border-color .2s ease,color .2s ease}
 .lista tr{transition:opacity .25s ease}
 .faq summary::after{transition:transform .25s ease}
@@ -626,7 +632,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && !quieto) {
     // Aparición suave de cada bloque al entrar en pantalla. El título de cada página no espera al script.
-    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faqs, .estudio > *, .contacto > *, .cierre .wrap > *');
+    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faq-grupo, .estudio > *, .contacto > *, .cierre .wrap > *');
     var ver = new IntersectionObserver(function(entradas){
       entradas.forEach(function(en){
         if (en.isIntersecting || en.boundingClientRect.top < 0) { en.target.classList.add('visto'); ver.unobserve(en.target); }

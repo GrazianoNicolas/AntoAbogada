@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Preguntas frecuentes sobre licitaciones | Pliego</title>
-<meta name="description" content="Respuestas sobre las licitaciones en Corrientes y los planes: qué se publica, cuánto cuesta, qué incluye la asesoría, garantías y Registro de Proveedores.">
+<meta name="description" content="Respuestas sobre licitaciones en Corrientes: qué se publica, qué comprende la asesoría, Registro de Proveedores, garantías y tipos de procedimiento.">
 <link rel="canonical" href="https://www.pliegoestudio.com.ar/preguntas/">
 <meta name="robots" content="index, follow">
 <meta name="geo.region" content="AR-W">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Pliego Estudio Jurídico">
 <meta property="og:title" content="Preguntas frecuentes sobre licitaciones | Pliego">
-<meta property="og:description" content="Respuestas sobre las licitaciones en Corrientes y los planes: qué se publica, cuánto cuesta, qué incluye la asesoría, garantías y Registro de Proveedores.">
+<meta property="og:description" content="Respuestas sobre licitaciones en Corrientes: qué se publica, qué comprende la asesoría, Registro de Proveedores, garantías y tipos de procedimiento.">
 <meta property="og:url" content="https://www.pliegoestudio.com.ar/preguntas/">
 <meta property="og:image" content="https://www.pliegoestudio.com.ar/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -259,14 +259,20 @@ td.norma{white-space:nowrap}
 .fuentes a{color:var(--marca)}
 
 /* Preguntas */
+/* Cada tema lleva su rótulo a la izquierda y sus preguntas a la derecha; en celular el rótulo queda arriba */
+.faq-grupo{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:0 2rem;max-width:63rem}
+.faq-grupo + .faq-grupo{margin-top:2.75rem}
+.faq-tit{font-family:var(--mono);font-weight:500;font-size:.76rem;line-height:1.5;letter-spacing:.09em;text-transform:uppercase;color:var(--acento);border-top:1px solid var(--linea);padding-top:1.3rem}
+@media (max-width:760px){.faq-grupo{grid-template-columns:minmax(0,1fr)}.faq-grupo + .faq-grupo{margin-top:2.25rem}.faq-tit{border-top:0;padding:0 0 .7rem}}
 .faqs{max-width:50rem;border-bottom:1px solid var(--linea)}
 .faq{border-top:1px solid var(--linea)}
 .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding-block:1.1rem}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary h2{font-size:1.1rem;line-height:1.3}
+.faq summary h3{font-size:1.1rem;line-height:1.3}
 .faq summary::after{content:"+";font-family:var(--mono);font-size:1.2rem;color:var(--acento);flex:none}
 .faq[open] summary::after{content:"−"}
 .faq p{padding-bottom:1.3rem;color:var(--tinta-2);max-width:44rem}
+.faq p + .norma{margin-top:-.75rem;color:var(--marca)}
 
 /* Estudio */
 .estudio{display:grid;grid-template-columns:minmax(0,18rem) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
@@ -328,8 +334,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .nav .lnk.activo{color:var(--tinta)}
 .logo svg{transition:transform .25s ease}
 .logo:hover svg{transform:rotate(-6deg)}
-.plan h2,.clientes h3,.faq summary h2{transition:color .2s ease}
-.plan:hover h2,.clientes article:hover h3,.faq summary:hover h2{color:var(--marca)}
+.plan h2,.clientes h3,.faq summary h3{transition:color .2s ease}
+.plan:hover h2,.clientes article:hover h3,.faq summary:hover h3{color:var(--marca)}
 .chip{transition:background-color .2s ease,border-color .2s ease,color .2s ease}
 .lista tr{transition:opacity .25s ease}
 .faq summary::after{transition:transform .25s ease}
@@ -382,7 +388,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   .btn:hover,.logo:hover svg{transform:none}
 }
 </style>
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.pliegoestudio.com.ar/"}, {"@type": "ListItem", "position": 2, "name": "Preguntas", "item": "https://www.pliegoestudio.com.ar/preguntas/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué licitaciones voy a encontrar en este sitio?", "acceptedAnswer": {"@type": "Answer", "text": "Licitaciones de la Provincia de Corrientes y de los municipios que publican su información, en cuatro rubros: obras, mantenimiento, tecnología (adquisición de tecnología, bienes y servicios) y software y soporte."}}, {"@type": "Question", "name": "¿Por qué no están todas las licitaciones de Corrientes?", "acceptedAnswer": {"@type": "Answer", "text": "Porque sólo incluyo los rubros en los que trabajé. Son los que conozco y, por eso, los que puedo analizar bien."}}, {"@type": "Question", "name": "¿Descargar las licitaciones tiene costo?", "acceptedAnswer": {"@type": "Answer", "text": "No. El plan básico es gratuito: puede descargar las licitaciones publicadas en el sitio y ver cuáles se acercan más a su empresa."}}, {"@type": "Question", "name": "¿Cómo sé qué licitación le conviene a mi empresa?", "acceptedAnswer": {"@type": "Answer", "text": "En el listado elige a qué se dedica su empresa y el sitio le muestra primero las licitaciones que más se acercan a ese rubro. Si después quiere saber si está en condiciones de presentarse, eso se ve en la asesoría."}}, {"@type": "Question", "name": "¿Qué incluye la asesoría para presentarse a una licitación?", "acceptedAnswer": {"@type": "Answer", "text": "El análisis de esa licitación, qué documentación le falta, qué documentación tiene pero hay que mejorar y la oferta diseñada para su empresa."}}, {"@type": "Question", "name": "¿Me acompaña durante todo el proceso de la licitación?", "acceptedAnswer": {"@type": "Answer", "text": "Ese será un tercer plan, que todavía no está disponible. Una licitación es un proceso muy largo, en el que cambian muchas cosas, y la mayoría dura dos o tres años. Por eso el seguimiento completo se suma más adelante."}}, {"@type": "Question", "name": "¿De dónde sale la información de las licitaciones?", "acceptedAnswer": {"@type": "Answer", "text": "De las publicaciones oficiales: el Boletín Oficial de la Provincia, el portal de la Contaduría General y los sitios de los municipios que publican sus llamados."}}, {"@type": "Question", "name": "¿Tengo que estar inscripto como proveedor del Estado para ofertar?", "acceptedAnswer": {"@type": "Answer", "text": "En general conviene estarlo antes de ofertar. La inscripción se tramita ante el Registro de Proveedores de la Contaduría General de la Provincia y se actualiza cada dos años. Si falta o está vencida, es una de las cosas que aparecen en la asesoría como documentación a completar."}}, {"@type": "Question", "name": "¿Qué garantías se piden en una licitación?", "acceptedAnswer": {"@type": "Answer", "text": "Lo habitual es una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento si resulta adjudicatario. Se pueden constituir de varias formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado indica el monto y las formas aceptadas."}}, {"@type": "Question", "name": "Mi empresa es de otra provincia, ¿puedo ofertar en Corrientes?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Para inscribirse como proveedor tendrá que fijar un domicilio especial en la provincia. Tenga en cuenta que, a igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes."}}]}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.pliegoestudio.com.ar/"}, {"@type": "ListItem", "position": 2, "name": "Preguntas", "item": "https://www.pliegoestudio.com.ar/preguntas/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué licitaciones se publican en este sitio?", "acceptedAnswer": {"@type": "Answer", "text": "Llamados de la Provincia de Corrientes y de los municipios que publican su información, en cuatro rubros: obras, mantenimiento, tecnología (adquisición de tecnología, bienes y servicios) y software y soporte. El listado se limita a esos rubros porque son aquellos en los que tengo experiencia profesional."}}, {"@type": "Question", "name": "¿De qué fuentes proviene la información?", "acceptedAnswer": {"@type": "Answer", "text": "De publicaciones oficiales: el Boletín Oficial de la Provincia, el portal de la Contaduría General y los sitios de los municipios que difunden sus llamados. El listado las reproduce y no las reemplaza. Ante cualquier diferencia, prevalecen la publicación oficial y el pliego del llamado."}}, {"@type": "Question", "name": "¿Consultar y descargar las licitaciones tiene costo?", "acceptedAnswer": {"@type": "Answer", "text": "No. El plan básico es gratuito y permite descargar los llamados publicados y ver cuáles se acercan más al rubro de su empresa."}}, {"@type": "Question", "name": "¿Cómo identifico las licitaciones afines a mi empresa?", "acceptedAnswer": {"@type": "Answer", "text": "En el listado se selecciona el rubro de la empresa y el sitio ordena primero los llamados más cercanos a esa actividad. Esa afinidad es una primera orientación. Si su empresa reúne las condiciones para presentarse se determina en la asesoría, con el pliego a la vista."}}, {"@type": "Question", "name": "¿Qué comprende la asesoría para presentarse a una licitación?", "acceptedAnswer": {"@type": "Answer", "text": "El análisis del llamado y de su pliego, el detalle de la documentación que falta, la revisión de la que ya tiene y debe mejorarse, y la oferta diseñada para su empresa."}}, {"@type": "Question", "name": "¿Con cuánta anticipación conviene solicitarla?", "acceptedAnswer": {"@type": "Answer", "text": "Apenas se publica el llamado. Reunir la documentación, constituir la garantía de oferta o regularizar la inscripción en el Registro de Proveedores lleva tiempo, y las ofertas sólo se reciben hasta el día y la hora fijados para la apertura."}}, {"@type": "Question", "name": "¿La asesoría garantiza la adjudicación?", "acceptedAnswer": {"@type": "Answer", "text": "No. La adjudicación la resuelve el organismo después de comparar las ofertas, y ningún profesional puede asegurar ese resultado. La asesoría apunta a que su oferta cumpla con el pliego y no sea desestimada por defectos de forma o por documentación incompleta."}}, {"@type": "Question", "name": "¿Hay acompañamiento durante todo el proceso de la licitación?", "acceptedAnswer": {"@type": "Answer", "text": "Será un tercer plan, que todavía no está disponible. Una licitación es un proceso extenso, que en la mayoría de los casos dura dos o tres años y en el que cambian muchas condiciones. Por eso el seguimiento completo se incorporará más adelante."}}, {"@type": "Question", "name": "¿La información que envío es confidencial?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La información y la documentación de su empresa quedan amparadas por el secreto profesional y se usan únicamente para analizar su consulta."}}, {"@type": "Question", "name": "¿Es necesario estar inscripto en el Registro de Proveedores para ofertar?", "acceptedAnswer": {"@type": "Answer", "text": "Conviene tener la inscripción vigente antes de ofertar. El Registro de Proveedores está a cargo de la Contaduría General de la Provincia y la inscripción se renueva cada dos años. Si falta o está vencida, la asesoría la señala entre la documentación a regularizar."}}, {"@type": "Question", "name": "¿Qué garantías debe constituir el oferente?", "acceptedAnswer": {"@type": "Answer", "text": "Una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento del contrato si resulta adjudicatario. Pueden constituirse de distintas formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado fija el monto y las formas admitidas."}}, {"@type": "Question", "name": "¿Qué diferencia hay entre una licitación pública, una licitación privada y un concurso de precios?", "acceptedAnswer": {"@type": "Answer", "text": "La licitación pública es la regla general: la convocatoria es abierta y se publica en el Boletín Oficial. La licitación privada y el concurso de precios se reservan para contrataciones de menor monto. En la primera se invita en forma directa a proveedores del rubro y en el segundo se piden cotizaciones a varios proveedores."}}, {"@type": "Question", "name": "¿Puede ofertar una empresa radicada en otra provincia?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Para inscribirse como proveedor deberá constituir un domicilio especial en la provincia. A igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes."}}, {"@type": "Question", "name": "¿Las licitaciones de obra pública tienen un régimen propio?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La obra pública se rige por la Ley 3079 y tiene su propio registro, el de Constructores y Consultores de Obras Públicas. El pliego de cada obra indica los requisitos de inscripción."}}]}]</script>
 </head>
 <body>
 <a class="salto" href="#contenido">Saltar al contenido</a>
@@ -412,49 +418,85 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   <div class="wrap">
     <div class="sec-head">
       <nav class="miga" aria-label="Ruta de navegación"><ol><li><a href="../">Inicio</a></li><li aria-current="page">Preguntas</li></ol></nav>
-      <h1>Preguntas frecuentes sobre las licitaciones y los planes</h1>
+      <h1>Preguntas frecuentes sobre licitaciones en Corrientes</h1>
+      <p>Respuestas breves sobre el listado, la asesoría y el procedimiento de licitación en la Provincia. En cada caso concreto rige el pliego del llamado.</p>
     </div>
-    <div class="faqs">
-      <details class="faq" open>
-        <summary><h2>¿Qué licitaciones voy a encontrar en este sitio?</h2></summary>
-        <p>Licitaciones de la Provincia de Corrientes y de los municipios que publican su información, en cuatro rubros: obras, mantenimiento, tecnología (adquisición de tecnología, bienes y servicios) y software y soporte.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>¿Por qué no están todas las licitaciones de Corrientes?</h2></summary>
-        <p>Porque sólo incluyo los rubros en los que trabajé. Son los que conozco y, por eso, los que puedo analizar bien.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>¿Descargar las licitaciones tiene costo?</h2></summary>
-        <p>No. El plan básico es gratuito: puede descargar las licitaciones publicadas en el sitio y ver cuáles se acercan más a su empresa.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>¿Cómo sé qué licitación le conviene a mi empresa?</h2></summary>
-        <p>En el listado elige a qué se dedica su empresa y el sitio le muestra primero las licitaciones que más se acercan a ese rubro. Si después quiere saber si está en condiciones de presentarse, eso se ve en la asesoría.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>¿Qué incluye la asesoría para presentarse a una licitación?</h2></summary>
-        <p>El análisis de esa licitación, qué documentación le falta, qué documentación tiene pero hay que mejorar y la oferta diseñada para su empresa.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>¿Me acompaña durante todo el proceso de la licitación?</h2></summary>
-        <p>Ese será un tercer plan, que todavía no está disponible. Una licitación es un proceso muy largo, en el que cambian muchas cosas, y la mayoría dura dos o tres años. Por eso el seguimiento completo se suma más adelante.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>¿De dónde sale la información de las licitaciones?</h2></summary>
-        <p>De las publicaciones oficiales: el Boletín Oficial de la Provincia, el portal de la Contaduría General y los sitios de los municipios que publican sus llamados.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>¿Tengo que estar inscripto como proveedor del Estado para ofertar?</h2></summary>
-        <p>En general conviene estarlo antes de ofertar. La inscripción se tramita ante el Registro de Proveedores de la Contaduría General de la Provincia y se actualiza cada dos años. Si falta o está vencida, es una de las cosas que aparecen en la asesoría como documentación a completar.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>¿Qué garantías se piden en una licitación?</h2></summary>
-        <p>Lo habitual es una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento si resulta adjudicatario. Se pueden constituir de varias formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado indica el monto y las formas aceptadas.</p>
-      </details>
-      <details class="faq">
-        <summary><h2>Mi empresa es de otra provincia, ¿puedo ofertar en Corrientes?</h2></summary>
-        <p>Sí. Para inscribirse como proveedor tendrá que fijar un domicilio especial en la provincia. Tenga en cuenta que, a igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes.</p>
-      </details>
+    <div class="faq-grupo">
+      <h2 class="faq-tit">El listado</h2>
+      <div class="faqs">
+        <details class="faq" open>
+          <summary><h3>¿Qué licitaciones se publican en este sitio?</h3></summary>
+          <p>Llamados de la Provincia de Corrientes y de los municipios que publican su información, en cuatro rubros: obras, mantenimiento, tecnología (adquisición de tecnología, bienes y servicios) y software y soporte. El listado se limita a esos rubros porque son aquellos en los que tengo experiencia profesional.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿De qué fuentes proviene la información?</h3></summary>
+          <p>De publicaciones oficiales: el Boletín Oficial de la Provincia, el portal de la Contaduría General y los sitios de los municipios que difunden sus llamados. El listado las reproduce y no las reemplaza. Ante cualquier diferencia, prevalecen la publicación oficial y el pliego del llamado.</p>
+          <p class="norma">Ley 5571 · art. 114</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Consultar y descargar las licitaciones tiene costo?</h3></summary>
+          <p>No. El plan básico es gratuito y permite descargar los llamados publicados y ver cuáles se acercan más al rubro de su empresa.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Cómo identifico las licitaciones afines a mi empresa?</h3></summary>
+          <p>En el listado se selecciona el rubro de la empresa y el sitio ordena primero los llamados más cercanos a esa actividad. Esa afinidad es una primera orientación. Si su empresa reúne las condiciones para presentarse se determina en la asesoría, con el pliego a la vista.</p>
+        </details>
+      </div>
+    </div>
+    <div class="faq-grupo">
+      <h2 class="faq-tit">La asesoría</h2>
+      <div class="faqs">
+        <details class="faq">
+          <summary><h3>¿Qué comprende la asesoría para presentarse a una licitación?</h3></summary>
+          <p>El análisis del llamado y de su pliego, el detalle de la documentación que falta, la revisión de la que ya tiene y debe mejorarse, y la oferta diseñada para su empresa.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Con cuánta anticipación conviene solicitarla?</h3></summary>
+          <p>Apenas se publica el llamado. Reunir la documentación, constituir la garantía de oferta o regularizar la inscripción en el Registro de Proveedores lleva tiempo, y las ofertas sólo se reciben hasta el día y la hora fijados para la apertura.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿La asesoría garantiza la adjudicación?</h3></summary>
+          <p>No. La adjudicación la resuelve el organismo después de comparar las ofertas, y ningún profesional puede asegurar ese resultado. La asesoría apunta a que su oferta cumpla con el pliego y no sea desestimada por defectos de forma o por documentación incompleta.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Hay acompañamiento durante todo el proceso de la licitación?</h3></summary>
+          <p>Será un tercer plan, que todavía no está disponible. Una licitación es un proceso extenso, que en la mayoría de los casos dura dos o tres años y en el que cambian muchas condiciones. Por eso el seguimiento completo se incorporará más adelante.</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿La información que envío es confidencial?</h3></summary>
+          <p>Sí. La información y la documentación de su empresa quedan amparadas por el secreto profesional y se usan únicamente para analizar su consulta.</p>
+        </details>
+      </div>
+    </div>
+    <div class="faq-grupo">
+      <h2 class="faq-tit">El procedimiento en Corrientes</h2>
+      <div class="faqs">
+        <details class="faq">
+          <summary><h3>¿Es necesario estar inscripto en el Registro de Proveedores para ofertar?</h3></summary>
+          <p>Conviene tener la inscripción vigente antes de ofertar. El Registro de Proveedores está a cargo de la Contaduría General de la Provincia y la inscripción se renueva cada dos años. Si falta o está vencida, la asesoría la señala entre la documentación a regularizar.</p>
+          <p class="norma">Decreto 3056/04 · arts. 117 a 124</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Qué garantías debe constituir el oferente?</h3></summary>
+          <p>Una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento del contrato si resulta adjudicatario. Pueden constituirse de distintas formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado fija el monto y las formas admitidas.</p>
+          <p class="norma">Decreto 3056/04 · art. 35</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Qué diferencia hay entre una licitación pública, una licitación privada y un concurso de precios?</h3></summary>
+          <p>La licitación pública es la regla general: la convocatoria es abierta y se publica en el Boletín Oficial. La licitación privada y el concurso de precios se reservan para contrataciones de menor monto. En la primera se invita en forma directa a proveedores del rubro y en el segundo se piden cotizaciones a varios proveedores.</p>
+          <p class="norma">Ley 5571 · arts. 108 y 109</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Puede ofertar una empresa radicada en otra provincia?</h3></summary>
+          <p>Sí. Para inscribirse como proveedor deberá constituir un domicilio especial en la provincia. A igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes.</p>
+          <p class="norma">Ley 5571 · art. 112</p>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Las licitaciones de obra pública tienen un régimen propio?</h3></summary>
+          <p>Sí. La obra pública se rige por la Ley 3079 y tiene su propio registro, el de Constructores y Consultores de Obras Públicas. El pliego de cada obra indica los requisitos de inscripción.</p>
+          <p class="norma">Ley 3079</p>
+        </details>
+      </div>
     </div>
   </div>
 </section>
@@ -462,8 +504,8 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
 <section class="banda cierre">
   <div class="wrap">
     <div class="cierre-txt">
-      <h2>¿No encontró su pregunta?</h2>
-      <p>Escríbame y le respondo sobre su caso.</p>
+      <h2>¿Tiene una consulta sobre un llamado en particular?</h2>
+      <p>Indíqueme de qué licitación se trata y le respondo sobre su caso.</p>
     </div>
     <div class="cta">
       <a class="btn btn--banda" href="../contacto/" data-tema="Otro tema">Hacer una consulta</a>
@@ -593,7 +635,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
   var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && !quieto) {
     // Aparición suave de cada bloque al entrar en pantalla. El título de cada página no espera al script.
-    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faqs, .estudio > *, .contacto > *, .cierre .wrap > *');
+    var bloques = document.querySelectorAll('.wrap > .sec-head, .clientes article, .filtros, .plan, .pasos li, .sigue, .etapas li, .sub, .tabla, .faq-grupo, .estudio > *, .contacto > *, .cierre .wrap > *');
     var ver = new IntersectionObserver(function(entradas){
       entradas.forEach(function(en){
         if (en.isIntersecting || en.boundingClientRect.top < 0) { en.target.classList.add('visto'); ver.unobserve(en.target); }

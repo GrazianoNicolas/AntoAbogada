@@ -38,8 +38,8 @@ PAGINAS = [
              'de mantenimiento y de tecnología.'},
     {'slug': 'preguntas', 'archivo': 'preguntas', 'nombre': 'Preguntas',
      'title': 'Preguntas frecuentes sobre licitaciones | Pliego',
-     'desc': 'Respuestas sobre las licitaciones en Corrientes y los planes: qué se publica, cuánto cuesta, qué incluye la asesoría, '
-             'garantías y Registro de Proveedores.'},
+     'desc': 'Respuestas sobre licitaciones en Corrientes: qué se publica, qué comprende la asesoría, Registro de Proveedores, '
+             'garantías y tipos de procedimiento.'},
     {'slug': 'contacto', 'archivo': 'contacto', 'nombre': 'Contacto',
      'title': 'Contacto y pedido de asesoría | Pliego',
      'desc': 'Pida asesoría para presentarse a una licitación en Corrientes. Cuénteme a qué se dedica su empresa y qué licitación '
@@ -125,7 +125,7 @@ def datos_estructurados(p, cuerpo):
     ld = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": DOMINIO},
         {"@type": "ListItem", "position": 2, "name": p['nombre'], "item": url(p)}]}]
-    faqs = re.findall(r'<summary><h2>(.*?)</h2></summary>\s*<p>(.*?)</p>', cuerpo, re.S)
+    faqs = re.findall(r'<summary><h3>(.*?)</h3></summary>\s*<p>(.*?)</p>', cuerpo, re.S)
     if p['slug'] == 'preguntas':
         assert len(faqs) >= 10, len(faqs)
     if faqs:
