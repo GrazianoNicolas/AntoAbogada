@@ -81,7 +81,7 @@ a{color:inherit}
 .nav{display:flex;gap:1.5rem;align-items:center;font-size:.95rem}
 .nav-links{display:flex;gap:1.5rem;align-items:center}
 .nav-links .lnk{padding-block:.6rem}
-.menu-btn,.nav .lnk--inicio{display:none}
+.menu-btn{display:none}
 .nav .lnk{text-decoration:none;color:var(--tinta-2)}
 .nav .lnk:hover{color:var(--tinta)}
 @media (max-width:900px){
@@ -93,7 +93,6 @@ a{color:inherit}
   .top.abierto .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .nav-links{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--papel);border-bottom:1px solid var(--linea);box-shadow:0 14px 24px -18px var(--sombra);padding-block:.25rem .75rem;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
   .top.abierto .nav-links{visibility:visible;opacity:1;transform:none;transition:opacity .2s ease,transform .25s ease,visibility 0s}
-  .nav .nav-links .lnk--inicio{display:block}
   .nav .nav-links .lnk{display:block;padding:.9rem 0;border-bottom:1px solid var(--linea);font-size:1.05rem;color:var(--tinta)}
   .nav .nav-links .lnk:last-child{border-bottom:0}
   .nav .nav-links .lnk::after{display:none}
@@ -163,13 +162,27 @@ a{color:inherit}
 .sello strong{font-size:.95rem;font-weight:500;letter-spacing:.14em}
 
 /* A quién acompaño */
-.clientes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}
+/* Cada rubro es una hoja con la esquina doblada, como el isotipo, y abre el listado con ese rubro elegido */
+.clientes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}
 @media (max-width:900px){.clientes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.clientes{gap:1.5rem 1.25rem}}
-@media (max-width:339px){.clientes{grid-template-columns:minmax(0,1fr)}}
-.clientes article{display:grid;gap:.5rem;align-content:start;border-top:2px solid var(--marca);padding-top:1rem}
-.clientes h3{font-size:1.15rem}
-.clientes p{color:var(--tinta-2);font-size:.98rem}
+.rubro{--doblez:1.75rem;position:relative;display:flex;flex-direction:column;gap:.55rem;min-width:0;background:var(--papel);border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1.4rem 1.3rem 1.2rem}
+/* La esquina es un cuadrado de dos colores: la mitad de afuera tapa la hoja con el fondo de la sección y la de adentro es el doblez */
+.rubro::before{content:"";position:absolute;top:-2px;right:-1px;width:var(--doblez);height:var(--doblez);background:linear-gradient(to bottom left,var(--papel-2) calc(50% - .5px),var(--acento) 50%)}
+.rubro h3{font-size:1.25rem;padding-right:1.25rem}
+.rubro p{color:var(--tinta-2);font-size:.98rem}
+.rubro .rubro-ej{font-family:var(--mono);font-size:.72rem;line-height:1.6;letter-spacing:.02em;color:var(--marca)}
+.rubro-ir{margin-top:auto;padding-top:.6rem;font-weight:600;font-size:.92rem;color:var(--acento);text-underline-offset:.2em}
+.rubro-ir::after{content:"";position:absolute;inset:0}
+/* En celular cada rubro ocupa un renglón compacto, para no alargar la página */
+@media (max-width:520px){
+  .clientes{grid-template-columns:minmax(0,1fr);gap:.7rem}
+  .rubro{--doblez:1.25rem;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:.15rem 1rem;padding:.9rem 1.7rem .95rem 1rem}
+  .rubro h3{font-size:1.12rem;padding-right:0}
+  .rubro p{grid-column:1/-1;grid-row:2}
+  .rubro .rubro-ej{display:none}
+  .rubro-ir{grid-column:2;grid-row:1;margin:0;padding:0}
+  .rubro-ir span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+}
 
 /* Listado de licitaciones */
 .filtros{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
@@ -335,6 +348,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .logo svg{transition:transform .25s ease}
 .logo:hover svg{transform:rotate(-6deg)}
 .plan h2,.clientes h3,.faq summary h3{transition:color .2s ease}
+.rubro::before{transform-origin:top right;transition:transform .25s ease}
+.rubro:hover::before,.rubro:focus-within::before{transform:scale(1.22)}
 .plan:hover h2,.clientes article:hover h3,.faq summary:hover h3{color:var(--marca)}
 .chip{transition:background-color .2s ease,border-color .2s ease,color .2s ease}
 .lista tr{transition:opacity .25s ease}
@@ -385,7 +400,8 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
 }
 @media (prefers-reduced-motion:reduce){
   .btn,.top,.nav .lnk,.nav .lnk::after,.logo svg,.faq summary::after,.nav-links,.top.abierto .nav-links,.menu-btn span{transition:none}
-  .btn:hover,.logo:hover svg{transform:none}
+  .rubro::before{transition:none}
+  .btn:hover,.logo:hover svg,.rubro:hover::before,.rubro:focus-within::before{transform:none}
 }
 </style>
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.pliegoestudio.com.ar/"}, {"@type": "ListItem", "position": 2, "name": "Licitaciones", "item": "https://www.pliegoestudio.com.ar/licitaciones/"}]}]</script>
@@ -400,7 +416,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
     </a>
     <nav class="nav" aria-label="Páginas del sitio">
       <div class="nav-links" id="menu">
-        <a class="lnk lnk--inicio" href="../">Inicio</a>
+        <a class="lnk" href="../">Inicio</a>
         <a class="lnk activo" aria-current="page" href="../licitaciones/">Licitaciones</a>
         <a class="lnk" href="../planes/">Planes</a>
         <a class="lnk" href="../guia/">Guía</a>
@@ -556,6 +572,18 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
         cerca.concat(resto).forEach(function(f){ cuerpo.appendChild(f); });
       });
     });
+    // Si se llega desde un rubro del inicio, el listado abre con ese rubro elegido
+    var filtrar = function(){
+      var pedido = '';
+      try { pedido = new URLSearchParams(window.location.search).get('rubro') || ''; } catch (err) {}
+      try {
+        var guardado = sessionStorage.getItem('pliego-rubro');
+        if (guardado) { pedido = guardado; sessionStorage.removeItem('pliego-rubro'); }
+      } catch (err) {}
+      cada(chips, function(c){ if (pedido && c.getAttribute('data-rubro') === pedido) c.click(); });
+    };
+    filtrar();
+    window.addEventListener('hashchange', filtrar);
     var nota = document.getElementById('nota-lista');
     lista.addEventListener('click', function(e){
       if (nota && e.target.closest('.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
@@ -575,6 +603,16 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
       var partes = [];
       for (var c in datos) partes.push(c + '=' + encodeURIComponent(datos[c]));
       a.setAttribute('href', href + '?' + partes.join('&'));
+    }
+  });
+
+  cada(document.querySelectorAll('a[data-filtro]'), function(a){
+    var href = a.getAttribute('href') || '';
+    var rubro = a.getAttribute('data-filtro');
+    if (href.charAt(0) === '#') {
+      a.addEventListener('click', function(){ try { sessionStorage.setItem('pliego-rubro', rubro); } catch (err) {} });
+    } else {
+      a.setAttribute('href', href + '?rubro=' + encodeURIComponent(rubro));
     }
   });
 

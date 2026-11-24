@@ -60,6 +60,18 @@
         cerca.concat(resto).forEach(function(f){ cuerpo.appendChild(f); });
       });
     });
+    // Si se llega desde un rubro del inicio, el listado abre con ese rubro elegido
+    var filtrar = function(){
+      var pedido = '';
+      try { pedido = new URLSearchParams(window.location.search).get('rubro') || ''; } catch (err) {}
+      try {
+        var guardado = sessionStorage.getItem('pliego-rubro');
+        if (guardado) { pedido = guardado; sessionStorage.removeItem('pliego-rubro'); }
+      } catch (err) {}
+      cada(chips, function(c){ if (pedido && c.getAttribute('data-rubro') === pedido) c.click(); });
+    };
+    filtrar();
+    window.addEventListener('hashchange', filtrar);
     var nota = document.getElementById('nota-lista');
     lista.addEventListener('click', function(e){
       if (nota && e.target.closest('.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
@@ -79,6 +91,16 @@
       var partes = [];
       for (var c in datos) partes.push(c + '=' + encodeURIComponent(datos[c]));
       a.setAttribute('href', href + '?' + partes.join('&'));
+    }
+  });
+
+  cada(document.querySelectorAll('a[data-filtro]'), function(a){
+    var href = a.getAttribute('href') || '';
+    var rubro = a.getAttribute('data-filtro');
+    if (href.charAt(0) === '#') {
+      a.addEventListener('click', function(){ try { sessionStorage.setItem('pliego-rubro', rubro); } catch (err) {} });
+    } else {
+      a.setAttribute('href', href + '?rubro=' + encodeURIComponent(rubro));
     }
   });
 

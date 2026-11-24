@@ -81,7 +81,7 @@ a{color:inherit}
 .nav{display:flex;gap:1.5rem;align-items:center;font-size:.95rem}
 .nav-links{display:flex;gap:1.5rem;align-items:center}
 .nav-links .lnk{padding-block:.6rem}
-.menu-btn,.nav .lnk--inicio{display:none}
+.menu-btn{display:none}
 .nav .lnk{text-decoration:none;color:var(--tinta-2)}
 .nav .lnk:hover{color:var(--tinta)}
 @media (max-width:900px){
@@ -93,7 +93,6 @@ a{color:inherit}
   .top.abierto .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .nav-links{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--papel);border-bottom:1px solid var(--linea);box-shadow:0 14px 24px -18px var(--sombra);padding-block:.25rem .75rem;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .2s ease,transform .25s ease,visibility 0s .25s}
   .top.abierto .nav-links{visibility:visible;opacity:1;transform:none;transition:opacity .2s ease,transform .25s ease,visibility 0s}
-  .nav .nav-links .lnk--inicio{display:block}
   .nav .nav-links .lnk{display:block;padding:.9rem 0;border-bottom:1px solid var(--linea);font-size:1.05rem;color:var(--tinta)}
   .nav .nav-links .lnk:last-child{border-bottom:0}
   .nav .nav-links .lnk::after{display:none}
@@ -163,13 +162,27 @@ a{color:inherit}
 .sello strong{font-size:.95rem;font-weight:500;letter-spacing:.14em}
 
 /* A quién acompaño */
-.clientes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}
+/* Cada rubro es una hoja con la esquina doblada, como el isotipo, y abre el listado con ese rubro elegido */
+.clientes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}
 @media (max-width:900px){.clientes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.clientes{gap:1.5rem 1.25rem}}
-@media (max-width:339px){.clientes{grid-template-columns:minmax(0,1fr)}}
-.clientes article{display:grid;gap:.5rem;align-content:start;border-top:2px solid var(--marca);padding-top:1rem}
-.clientes h3{font-size:1.15rem}
-.clientes p{color:var(--tinta-2);font-size:.98rem}
+.rubro{--doblez:1.75rem;position:relative;display:flex;flex-direction:column;gap:.55rem;min-width:0;background:var(--papel);border:1px solid var(--linea);border-top:2px solid var(--marca);padding:1.4rem 1.3rem 1.2rem}
+/* La esquina es un cuadrado de dos colores: la mitad de afuera tapa la hoja con el fondo de la sección y la de adentro es el doblez */
+.rubro::before{content:"";position:absolute;top:-2px;right:-1px;width:var(--doblez);height:var(--doblez);background:linear-gradient(to bottom left,var(--papel-2) calc(50% - .5px),var(--acento) 50%)}
+.rubro h3{font-size:1.25rem;padding-right:1.25rem}
+.rubro p{color:var(--tinta-2);font-size:.98rem}
+.rubro .rubro-ej{font-family:var(--mono);font-size:.72rem;line-height:1.6;letter-spacing:.02em;color:var(--marca)}
+.rubro-ir{margin-top:auto;padding-top:.6rem;font-weight:600;font-size:.92rem;color:var(--acento);text-underline-offset:.2em}
+.rubro-ir::after{content:"";position:absolute;inset:0}
+/* En celular cada rubro ocupa un renglón compacto, para no alargar la página */
+@media (max-width:520px){
+  .clientes{grid-template-columns:minmax(0,1fr);gap:.7rem}
+  .rubro{--doblez:1.25rem;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:.15rem 1rem;padding:.9rem 1.7rem .95rem 1rem}
+  .rubro h3{font-size:1.12rem;padding-right:0}
+  .rubro p{grid-column:1/-1;grid-row:2}
+  .rubro .rubro-ej{display:none}
+  .rubro-ir{grid-column:2;grid-row:1;margin:0;padding:0}
+  .rubro-ir span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+}
 
 /* Listado de licitaciones */
 .filtros{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
@@ -335,6 +348,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .logo svg{transition:transform .25s ease}
 .logo:hover svg{transform:rotate(-6deg)}
 .plan h2,.clientes h3,.faq summary h3{transition:color .2s ease}
+.rubro::before{transform-origin:top right;transition:transform .25s ease}
+.rubro:hover::before,.rubro:focus-within::before{transform:scale(1.22)}
 .plan:hover h2,.clientes article:hover h3,.faq summary:hover h3{color:var(--marca)}
 .chip{transition:background-color .2s ease,border-color .2s ease,color .2s ease}
 .lista tr{transition:opacity .25s ease}
@@ -385,7 +400,8 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
 }
 @media (prefers-reduced-motion:reduce){
   .btn,.top,.nav .lnk,.nav .lnk::after,.logo svg,.faq summary::after,.nav-links,.top.abierto .nav-links,.menu-btn span{transition:none}
-  .btn:hover,.logo:hover svg{transform:none}
+  .rubro::before{transition:none}
+  .btn:hover,.logo:hover svg,.rubro:hover::before,.rubro:focus-within::before{transform:none}
 }
 </style>
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.pliegoestudio.com.ar/"}, {"@type": "ListItem", "position": 2, "name": "Preguntas", "item": "https://www.pliegoestudio.com.ar/preguntas/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué licitaciones se publican en este sitio?", "acceptedAnswer": {"@type": "Answer", "text": "Llamados de la Provincia de Corrientes y de los municipios que publican su información, en cuatro rubros: obras, mantenimiento, tecnología (adquisición de tecnología, bienes y servicios) y software y soporte. El listado se limita a esos rubros porque son aquellos en los que tengo experiencia profesional."}}, {"@type": "Question", "name": "¿De qué fuentes proviene la información?", "acceptedAnswer": {"@type": "Answer", "text": "De publicaciones oficiales: el Boletín Oficial de la Provincia, el portal de la Contaduría General y los sitios de los municipios que difunden sus llamados. El listado las reproduce y no las reemplaza. Ante cualquier diferencia, prevalecen la publicación oficial y el pliego del llamado."}}, {"@type": "Question", "name": "¿Consultar y descargar las licitaciones tiene costo?", "acceptedAnswer": {"@type": "Answer", "text": "No. El plan básico es gratuito y permite descargar los llamados publicados y ver cuáles se acercan más al rubro de su empresa."}}, {"@type": "Question", "name": "¿Cómo identifico las licitaciones afines a mi empresa?", "acceptedAnswer": {"@type": "Answer", "text": "En el listado se selecciona el rubro de la empresa y el sitio ordena primero los llamados más cercanos a esa actividad. Esa afinidad es una primera orientación. Si su empresa reúne las condiciones para presentarse se determina en la asesoría, con el pliego a la vista."}}, {"@type": "Question", "name": "¿Qué comprende la asesoría para presentarse a una licitación?", "acceptedAnswer": {"@type": "Answer", "text": "El análisis del llamado y de su pliego, el detalle de la documentación que falta, la revisión de la que ya tiene y debe mejorarse, y la oferta diseñada para su empresa."}}, {"@type": "Question", "name": "¿Con cuánta anticipación conviene solicitarla?", "acceptedAnswer": {"@type": "Answer", "text": "Apenas se publica el llamado. Reunir la documentación, constituir la garantía de oferta o regularizar la inscripción en el Registro de Proveedores lleva tiempo, y las ofertas sólo se reciben hasta el día y la hora fijados para la apertura."}}, {"@type": "Question", "name": "¿La asesoría garantiza la adjudicación?", "acceptedAnswer": {"@type": "Answer", "text": "No. La adjudicación la resuelve el organismo después de comparar las ofertas, y ningún profesional puede asegurar ese resultado. La asesoría apunta a que su oferta cumpla con el pliego y no sea desestimada por defectos de forma o por documentación incompleta."}}, {"@type": "Question", "name": "¿Hay acompañamiento durante todo el proceso de la licitación?", "acceptedAnswer": {"@type": "Answer", "text": "Será un tercer plan, que todavía no está disponible. Una licitación es un proceso extenso, que en la mayoría de los casos dura dos o tres años y en el que cambian muchas condiciones. Por eso el seguimiento completo se incorporará más adelante."}}, {"@type": "Question", "name": "¿La información que envío es confidencial?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La información y la documentación de su empresa quedan amparadas por el secreto profesional y se usan únicamente para analizar su consulta."}}, {"@type": "Question", "name": "¿Es necesario estar inscripto en el Registro de Proveedores para ofertar?", "acceptedAnswer": {"@type": "Answer", "text": "Conviene tener la inscripción vigente antes de ofertar. El Registro de Proveedores está a cargo de la Contaduría General de la Provincia y la inscripción se renueva cada dos años. Si falta o está vencida, la asesoría la señala entre la documentación a regularizar."}}, {"@type": "Question", "name": "¿Qué garantías debe constituir el oferente?", "acceptedAnswer": {"@type": "Answer", "text": "Una garantía de oferta, que en el régimen provincial equivale como regla al 1 % del presupuesto oficial, y una garantía de cumplimiento del contrato si resulta adjudicatario. Pueden constituirse de distintas formas, entre ellas depósito en efectivo, cheque, aval bancario o seguro de caución. El pliego de cada llamado fija el monto y las formas admitidas."}}, {"@type": "Question", "name": "¿Qué diferencia hay entre una licitación pública, una licitación privada y un concurso de precios?", "acceptedAnswer": {"@type": "Answer", "text": "La licitación pública es la regla general: la convocatoria es abierta y se publica en el Boletín Oficial. La licitación privada y el concurso de precios se reservan para contrataciones de menor monto. En la primera se invita en forma directa a proveedores del rubro y en el segundo se piden cotizaciones a varios proveedores."}}, {"@type": "Question", "name": "¿Puede ofertar una empresa radicada en otra provincia?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Para inscribirse como proveedor deberá constituir un domicilio especial en la provincia. A igualdad de precio y condiciones, la ley da preferencia a las empresas radicadas en Corrientes."}}, {"@type": "Question", "name": "¿Las licitaciones de obra pública tienen un régimen propio?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La obra pública se rige por la Ley 3079 y tiene su propio registro, el de Constructores y Consultores de Obras Públicas. El pliego de cada obra indica los requisitos de inscripción."}}]}]</script>
@@ -400,7 +416,7 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
     </a>
     <nav class="nav" aria-label="Páginas del sitio">
       <div class="nav-links" id="menu">
-        <a class="lnk lnk--inicio" href="../">Inicio</a>
+        <a class="lnk" href="../">Inicio</a>
         <a class="lnk" href="../licitaciones/">Licitaciones</a>
         <a class="lnk" href="../planes/">Planes</a>
         <a class="lnk" href="../guia/">Guía</a>
@@ -610,6 +626,18 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
         cerca.concat(resto).forEach(function(f){ cuerpo.appendChild(f); });
       });
     });
+    // Si se llega desde un rubro del inicio, el listado abre con ese rubro elegido
+    var filtrar = function(){
+      var pedido = '';
+      try { pedido = new URLSearchParams(window.location.search).get('rubro') || ''; } catch (err) {}
+      try {
+        var guardado = sessionStorage.getItem('pliego-rubro');
+        if (guardado) { pedido = guardado; sessionStorage.removeItem('pliego-rubro'); }
+      } catch (err) {}
+      cada(chips, function(c){ if (pedido && c.getAttribute('data-rubro') === pedido) c.click(); });
+    };
+    filtrar();
+    window.addEventListener('hashchange', filtrar);
     var nota = document.getElementById('nota-lista');
     lista.addEventListener('click', function(e){
       if (nota && e.target.closest('.bajar')) nota.textContent = 'Estas licitaciones son de ejemplo. Cuando se carguen las reales, este botón descarga el pliego oficial.';
@@ -629,6 +657,16 @@ input:hover,select:hover,textarea:hover{border-color:var(--acento-banda)}
       var partes = [];
       for (var c in datos) partes.push(c + '=' + encodeURIComponent(datos[c]));
       a.setAttribute('href', href + '?' + partes.join('&'));
+    }
+  });
+
+  cada(document.querySelectorAll('a[data-filtro]'), function(a){
+    var href = a.getAttribute('href') || '';
+    var rubro = a.getAttribute('data-filtro');
+    if (href.charAt(0) === '#') {
+      a.addEventListener('click', function(){ try { sessionStorage.setItem('pliego-rubro', rubro); } catch (err) {} });
+    } else {
+      a.setAttribute('href', href + '?rubro=' + encodeURIComponent(rubro));
     }
   });
 
